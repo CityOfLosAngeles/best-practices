@@ -12,6 +12,7 @@ Below are short demos for getting started:
 # Import Python packages
 import pandas as pd
 import geopandas as gpd
+import boto3
 ```
 
 ## Importing and Exporting Data in Python
@@ -40,9 +41,15 @@ To read in our dataframe (df) and geodataframe (gdf) from S3:
 df = pd.read_csv('s3://bucket-name/my_csv.csv')
 gdf = gpd.read_file('s3://bucket-name/my_geojson.geojson')
 gdf = gpd.read_file('zip+s3://bucket-name/my-shapefile.zip')
-```
-<b> Need to figure out how to export gdf as shp/geojson and upload to S3 with boto3  
-</b> 
+
+
+# To write a file to S3, first save the gdf locally
+import boto3
+s3 = boto3.client('s3')
+gdf.to_file(driver = 'GeoJSON', filename = '../folder/my_geojson.geojson')
+s3.upload_file('../folder/my_geojson.geojson', 
+    'bucket-name', 's3_filename.geojson') 
+``` 
 
 Additional general information about various file types can be found in the [Data Management best practices](./data-management.md).
 
@@ -87,7 +94,7 @@ gdf.crs = {'init' :'epsg:4326'}
 There are [lots of CRS available](https://epsg.io). The most common ones used in southern California are:
 
 | EPSG | Name | Map Units 
-| ---| ---- | --- | ---| 
+| ---| ---- | --- | 
 | 4326 | WGS84 | decimal degrees 
 | 2229 | CA State Plane Zone 5 | US feet 
 | 3310 | CA Albers | meters 
