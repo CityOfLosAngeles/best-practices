@@ -1,8 +1,8 @@
 # Basics: Working with Geospatial Data
 
-Place matters. That's why data analysis often includes a geospatial or geographic component. 
+Place matters. That's why data analysis often includes a geospatial or geographic component. Before we wrangle with our data, let's go over the basics and make sure we're properly set up.
 
-Below are short demos of the basics to get started working with geospatial data. 
+Below are short demos for getting started: 
 * [Importing and Exporting Data in Python](#Importing-and-Exporting-Data-in-Python)
 * [Setting and Projecting Coordinate Reference System](#Setting-and-Projecting-Coordinate-Reference-System)
 
@@ -32,7 +32,7 @@ gdf.to_file(driver = 'ESRI Shapefile', filename = '../folder/my_shapefile.shp' )
 ```
 
 ### <b> S3 </b>
-Data can also be stored in an Amazon S3 as a bucket storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). 
+Data can also be stored in an Amazon S3 as a bucket storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
 To read in our dataframe (df) and geodataframe (gdf) from S3: 
 
@@ -40,9 +40,54 @@ To read in our dataframe (df) and geodataframe (gdf) from S3:
 df = pd.read_csv('s3://bucket-name/my_csv.csv')
 gdf = gpd.read_file('s3://bucket-name/my_geojson.geojson')
 gdf = gpd.read_file('zip+s3://bucket-name/my-shapefile.zip')
-
-
-gdf.to_file(driver = 'GeoJSON', filename = 's3://bucket-name/my_geojson.geojson')
 ```
+<b> Need to figure out how to export gdf as shp/geojson and upload to S3 with boto3  
+</b> 
+
+Additional general information about various file types can be found in the [Data Management best practices](./data-management.md).
+
 
 ## Setting and Projecting Coordinate Reference System
+A coordinate reference system (CRS) tells geopandas how to plot the coordinates on the Earth. Starting with a shapefile usually means that the CRS is already set. In that case, we are interested in re-projecting the gdf to a different CRS. The CRS is chosen specific to a region (i.e., USA, Southern Califonia, New York, etc) or for its map units (i.e., decimal degrees, US feet, meters, etc). Map units that are US feet or meters are easier to work when it comes to defining distances (100 ft buffer, etc).
+
+In Python, there are 2 related concepts: 
+1. Setting the CRS <--> corresponds to geographic coordinate system in ArcGIS
+2. Re-projecting the CRS <--> corresponds to datum transformation and projected coordinated system in ArcGIS
+
+
+
+The ArcGIS equivalent of this is in [3 related concepts](https://pro.arcgis.com/en/pro-app/help/mapping/properties/coordinate-systems-and-projections.htm):
+1. geographic coordinate system
+2. datum transformation
+3. projected coordinate system
+
+The <b> geographic coordinate system</b> is the coordinate system of the latitude and longitude points. Common ones are WGS84, NAD1983, and NAD1927.
+
+<b> Datum transformation </b> is needed when the geographic coordinate systems of two layers do not match. A datum transformation is needed to convert NAD1983 into WGS84.
+
+The <b>projected coordinate system</b> projects the coordinates onto the map. ArcGIS projects "on the fly", and applies the first layer's projection to all subsequent layers. The projection does not change the coordinates from WGS84, but displays the points from a 3D sphere onto a 2D map. The projection determines how the Earth's sphere is unfolded and flattened. 
+
+In ArcGIS, layers must have the same geographic coordinate system and projected coordinate system before spatial analysis can occur. Since ArcGIS allows you to choose the map units (i.e., feet, miles, meters) for proximity analysis, projections are chosen primarily for the region to be mapped.
+
+In Python, the `geometry` column holds information about the geographic coordinate system and its projection. Therefore, gdfs must be set to the same CRS before performing any spatial operations between them. 
+
+```
+# Check to see what the CRS is
+gdf.crs
+
+# Change the projection to CA State Plane (units = US feet)
+gdf = gdf.to_crs({'init':'epsg:2229'})
+```
+
+Sometimes, if the gdf does not have a CRS set, and you'll have to manually set that. This might occur if you create the `geometry` column from latitude and longitude points. More on this in the [intermediate tutorial](./spatial-analysis-intermediate.md#Create-geometry-column-from-latitude-and-longitude-coordinates):
+```
+gdf.crs = {'init' :'epsg:4326'}
+```
+
+There are [lots of CRS available](https://epsg.io). The most common ones used in southern California are:
+
+| EPSG | Name | Map Units 
+| ---| ---- | --- | ---| 
+| 4326 | WGS84 | decimal degrees 
+| 2229 | CA State Plane Zone 5 | US feet 
+| 3310 | CA Albers | meters 
