@@ -226,3 +226,8 @@ The final `count`:
 | ---| ---- |
 | Leslie Knope | 3
 | Ann Perkins | 1
+
+<br>
+
+<a href="#" class="previous">&laquo; [Previous](./spatial-analysis-basics.md)</a> 
+<a href="#" class="next">[Next](./spatial-analysis-intermediate.md) &raquo;</a>

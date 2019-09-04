@@ -11,7 +11,7 @@ This is a living document -- pull requests are welcome!
 ## Contents
 ### [Charting](./charting.md)
 ### [Git/GitHub](./github.md)
-### [Jupyter notebooks](./notebooks.md)
+### [Jupyter Notebooks](./notebooks.md)
 ### [Data Pipelines](./data-pipeline.md)
 ### [Data Management / Files](./data-management.md)
 ### [Spatial Analysis Tutorials](./spatial-analysis-basics.md)

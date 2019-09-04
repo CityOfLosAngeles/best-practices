@@ -21,3 +21,7 @@ from shapely.geometry import Point
 ## WKTElement, etc etc. 
 * Writing to database with WKT?
 * Use shapely if in gpd
+
+<br>
+
+<a href="#" class="previous">&laquo; [Previous](./spatial-analysis-intermediate.md)</a> 

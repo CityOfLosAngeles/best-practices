@@ -156,3 +156,8 @@ To create a new gdf with just 100 ft buffers, select the relevant geometry colum
 df100 = df[['Business', 'Sales_millions', 
     'geometry100']].set_geometry('geometry100')
 ```
+
+<br>
+
+<a href="#" class="previous">&laquo; [Previous](./spatial-analysis-intro.md)</a> 
+<a href="#" class="next">[Next](./spatial-analysis-advanced.md) &raquo;</a>
