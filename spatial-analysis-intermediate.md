@@ -7,8 +7,6 @@ Below are short demos of other common manipulations of geospatial data.
 * [Use a loop to do spatial joins and aggregations over different boundaries](#Use-a-loop-to-do-spatial-joins-and-aggregations-over-different-boundaries)
 * [More complicated explanation of geometry (WKTElement and WKBElement)](#More-complicated-geometry)
 * [Multiple geometry columns](#Multiple-geometry-columns)
-* use WKT to write to database, serialization
-* use shapely to use in gpd, geometry column uses shapely objects
 
 
 ## Getting Started 
