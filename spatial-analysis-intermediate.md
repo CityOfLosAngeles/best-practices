@@ -1,6 +1,6 @@
 # Intermediate: Working with Geospatial Data
 
-Place matters. After covering the [intro tutorial](./spatial-analysis-intro.md), you're ready to take your spatial analysis to the next level. 
+Place matters. After breezing through the [intro tutorial](./spatial-analysis-intro.md), you're ready to take your spatial analysis to the next level. 
 
 Below are short demos of other common manipulations of geospatial data. 
 * [Create geometry column from latitude and longitude coordinates](#Create-geometry-column-from-latitude-and-longitude-coordinates)

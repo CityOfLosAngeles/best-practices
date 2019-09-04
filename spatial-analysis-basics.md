@@ -46,6 +46,7 @@ gdf = gpd.read_file('zip+s3://bucket-name/my-shapefile.zip')
 # To write a file to S3, first save the gdf locally
 import boto3
 s3 = boto3.client('s3')
+
 gdf.to_file(driver = 'GeoJSON', filename = '../folder/my_geojson.geojson')
 s3.upload_file('../folder/my_geojson.geojson', 
     'bucket-name', 's3_filename.geojson') 
@@ -68,7 +69,7 @@ The ArcGIS equivalent of this is in [3 related concepts](https://pro.arcgis.com/
 2. datum transformation
 3. projected coordinate system
 
-The <b> geographic coordinate system</b> is the coordinate system of the latitude and longitude points. Common ones are WGS84, NAD1983, and NAD1927.
+The <b> geographic coordinate system</b> is the coordinate system of the latitude and longitude points. Common ones are WGS84, NAD83, and NAD27.
 
 <b> Datum transformation </b> is needed when the geographic coordinate systems of two layers do not match. A datum transformation is needed to convert NAD1983 into WGS84.
 
@@ -76,20 +77,22 @@ The <b>projected coordinate system</b> projects the coordinates onto the map. Ar
 
 In ArcGIS, layers must have the same geographic coordinate system and projected coordinate system before spatial analysis can occur. Since ArcGIS allows you to choose the map units (i.e., feet, miles, meters) for proximity analysis, projections are chosen primarily for the region to be mapped.
 
-In Python, the `geometry` column holds information about the geographic coordinate system and its projection. Therefore, gdfs must be set to the same CRS before performing any spatial operations between them. 
+In Python, the `geometry` column holds information about the geographic coordinate system and its projection. All gdfs must be set to the same CRS before performing any spatial operations between them. Changing `geometry` from WGS84 to CA State Plane is a datum transformation (WGS84 to NAD83) and projection to CA State Plane Zone 5.  
 
 ```
 # Check to see what the CRS is
 gdf.crs
 
-# Change the projection to CA State Plane (units = US feet)
+# If there is a CRS set, you can change the projection
+# Here, change to CA State Plane (units = US feet)
 gdf = gdf.to_crs({'init':'epsg:2229'})
-```
 
-Sometimes, if the gdf does not have a CRS set, and you'll have to manually set that. This might occur if you create the `geometry` column from latitude and longitude points. More on this in the [intermediate tutorial](./spatial-analysis-intermediate.md#Create-geometry-column-from-latitude-and-longitude-coordinates):
-```
+# If the CRS is not set, set it first, then re-project to a different EPSG. 
+# Here, set to WGS84
 gdf.crs = {'init' :'epsg:4326'}
 ```
+
+Sometimes, the gdf does not have a CRS set, will need to be manually set. This might occur if you create the `geometry` column from latitude and longitude points. More on this in the [intermediate tutorial](./spatial-analysis-intermediate.md#Create-geometry-column-from-latitude-and-longitude-coordinates):
 
 There are [lots of CRS available](https://epsg.io). The most common ones used in southern California are:
 
