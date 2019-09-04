@@ -11,9 +11,15 @@ This is a living document -- pull requests are welcome!
 ## Contents
 ### [Charting](./charting.md)
 ### [Git/GitHub](./github.md)
-### [Jupyter notebooks](./notebooks.md)
+### [Jupyter Notebooks](./notebooks.md)
 ### [Data Pipelines](./data-pipeline.md)
 ### [Data Management / Files](./data-management.md)
+### [Spatial Analysis Tutorials](./spatial-analysis-basics.md)
+1. [Getting Started / Basics](./spatial-analysis-basics.md)
+2. [Introduction](./spatial-analysis-intro.md)
+3. [Intermediate](./spatial-analysis-intermediate.md)
+4. [Advanced](./spatial-analysis-advanced.md)
+
 ### [Reading list](./reading-list.md)
 
 ## To Contribute

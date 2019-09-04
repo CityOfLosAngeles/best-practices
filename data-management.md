@@ -15,9 +15,9 @@ To write and read a pandas dataframe as a CSV to S3:
 
 ```
 import pandas as pd
-df.to_csv(s3://bucket-name/my_df_name.csv)
+df.to_csv('s3://bucket-name/my_df_name.csv')
 
-pd.read_csv(s3://bucket-name/my_df_name.csv)
+pd.read_csv('s3://bucket-name/my_df_name.csv')
 ```
 
 You can read more in the [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-uploading-files.html) docs. By putting data on S3, anybody on the team can use / access/ and replicate without having to transfer data files between machines. 
@@ -27,7 +27,7 @@ Sometimes, it is easiest to simply use your local file system to store data. As 
 
 `/data` should be used for raw data, while `/processed` should be used for any intermediate steps. You can also duplicate this on S3. Finally, `outputs/` for outputs. This should all best setup by our [data science template](https://github.com/CityOfLosAngeles/cookiecutter-data-science). If you use `data`, make sure all the data in it is documented in your README. 
 
-Don't hardcode paths, such as `//Users/YOUR_EID/. You might need to use S3 or a cloud database if your data is big. 
+Don't hardcode paths, such as `//Users/YOUR_EID/`. You might need to use S3 or a cloud database if your data is big. 
 
 ### Databases 
 Finally, for analysis and storage purposes, it is sometimes best to store the data in a structured database for querying. We use `postgreSQL` for this purposes. 
