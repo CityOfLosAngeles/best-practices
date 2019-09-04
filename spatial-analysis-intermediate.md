@@ -122,6 +122,7 @@ results["planning_summary].head()
 ```
 
 `council_summary` would look like this, with the total count of Business and sum of Sales_millions within the council district:
+
 | ID | Business | Sales_millions  
 | ---| ---- | --- |
 | 1 | 2 | 45 
