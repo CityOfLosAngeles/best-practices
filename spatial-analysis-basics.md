@@ -104,4 +104,4 @@ There are [lots of CRS available](https://epsg.io). The most common ones used in
 
 <br>
 
-<a href="#" class="next">[Next](./spatial-analysis-intro.md) &raquo;</a>
+[Next »](./spatial-analysis-intro.md)
