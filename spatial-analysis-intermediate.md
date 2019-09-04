@@ -143,8 +143,9 @@ df['geometry200'] = df.geometry.buffer(200)
 
 df
 ```
+
 | Business | Sales_millions | geometry | geometry100 | geometry200
-| ---| ---- | --- | ---| ---| --- | --- |
+| ---| ---- | --- | ---| ---| 
 | Paunch Burger | 5 | Point(x1, y1) | polygon | polygon
 | Sweetums | 30 | Point(x2, y2) | polygon | polygon
 | Jurassic Fork  | 2 | Point(x3, y3) | polygon | polygon
