@@ -229,5 +229,4 @@ The final `count`:
 
 <br>
 
-<a href="#" class="previous">&laquo; [Previous](./spatial-analysis-basics.md)</a> 
-<a href="#" class="next">[Next](./spatial-analysis-intermediate.md) &raquo;</a>
+[« Previous](./spatial-analysis-basics.md) &nbsp; &nbsp; [Next »](./spatial-analysis-intermediate.md)

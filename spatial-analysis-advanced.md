@@ -3,7 +3,7 @@
 Place matters. After covering the [intermediate tutorial](./spatial-analysis-intermediate.md), you're ready to cover some advancaed spatial analysis topics. 
 
 Below are short demos of __________ . 
-* [Create geometry column from latitude and longitude coordinates](#Create-geometry-column-from-latitude-and-longitude-coordinates)
+* [new topic](#link)
 * use WKT to write to database, serialization
 
 
@@ -24,4 +24,4 @@ from shapely.geometry import Point
 
 <br>
 
-<a href="#" class="previous">&laquo; [Previous](./spatial-analysis-intermediate.md)</a> 
+[« Previous](./spatial-analysis-intermediate.md)

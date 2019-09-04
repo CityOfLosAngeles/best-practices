@@ -160,5 +160,4 @@ df100 = df[['Business', 'Sales_millions',
 
 <br>
 
-<a href="#" class="previous">&laquo; [Previous](./spatial-analysis-intro.md)</a> 
-<a href="#" class="next">[Next](./spatial-analysis-advanced.md) &raquo;</a>
+[« Previous](./spatial-analysis-intro.md) &nbsp; &nbsp; [Next »](./spatial-analysis-advanced.md)
