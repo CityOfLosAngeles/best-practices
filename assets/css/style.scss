@@ -6,7 +6,16 @@
 header {
   display: flex;
   align-items: center;
+  margin: 50px;
 }
+
+body {
+  margin: 30px;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.25
+}
+
 /**
  * Images
  */
