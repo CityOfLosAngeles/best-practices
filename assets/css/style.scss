@@ -26,6 +26,8 @@ body {
 
 table {
   border-collapse: collapse;
+  border: 1px grey;
+  border-spacing: 2px;
   width: 75%;
   margin-left: auto;
   margin-right: auto
@@ -35,7 +37,7 @@ th, td {
   padding: 3px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #f2f2f2;}
 
 
 /**
