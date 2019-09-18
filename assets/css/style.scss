@@ -9,16 +9,34 @@ header {
   margin: 100px;
 }
 
-
 body {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
   font-family: "Roboto", "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 1.25
+  line-height: 1.5
 }
+
+.highlight {
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px
+}
+
+table {
+  border-collapse: collapse;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto
+}
+
+th, td {
+  padding: 3px;
+}
+
+tr: nth-child(even) {background-color: #f2f2f2;}
+
 
 /**
  * Images
