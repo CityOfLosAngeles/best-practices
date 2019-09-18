@@ -194,7 +194,7 @@ homes_buffer['geometry] = homes.geometry.buffer(two_miles)
 Do a spatial join between `locations` and `homes_buffer`. Repeat the process of spatial join and aggregation in Python as illustrated in the previous section (spatial join and dissolve in ArcGIS).
 
 ```
-sjoin = gpd.sjoin(locations, homes_buffer, how = 'inner', op = 'intersects)
+sjoin = gpd.sjoin(locations, homes_buffer, how = 'inner', op = 'intersects')
 sjoin
 ```
 
@@ -213,11 +213,11 @@ Count the number of Paunch Burger locations for each friend.
 
 ```
 count = sjoin.pivot_table(index = 'Name', 
-    values = 'Store', aggfunc = 'count).reset_index()
+    values = 'Store', aggfunc = 'count').reset_index()
 
 OR 
 
-count = sjoin.groupby('Name').agg({'Store':'count}).reset_index()
+count = sjoin.groupby('Name').agg({'Store':'count'}).reset_index()
 ```
 
 The final `count`:
