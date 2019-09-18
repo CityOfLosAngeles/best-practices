@@ -26,18 +26,17 @@ body {
 
 table {
   border-collapse: collapse;
-  border: 1px grey;
-  border-spacing: 2px;
+  border: 1px #8c8c8c;
   width: 75%;
   margin-left: auto;
   margin-right: auto
 }
 
 th, td {
-  padding: 3px;
+  padding: 5px;
 }
 
-tr:nth-child(odd) {background-color: #f2f2f2;}
+tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 /**
