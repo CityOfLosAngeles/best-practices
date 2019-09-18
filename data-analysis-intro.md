@@ -101,8 +101,7 @@ def elected_year(row):
 
 # Use a lambda function to apply the elected_year function to all rows in the df. 
 # Don't forget axis = 1 (apply function to all rows)!
-council_population['Elected'] = council_population.apply(lambda row: 
-    elected_year(row), axis = 1)
+council_population['Elected'] = council_population.apply(lambda row: elected_year(row), axis = 1)
 
 council_population
 ```
@@ -165,13 +164,14 @@ pivot = merge2.pivot_table(index= ['CD', 'Geometry_y'],
 
     # to only find one type of summary statistic, use aggfunc = 'sum'
 
-# reset_index() will compress the headers of the table, forcing them to appear in 1 row rather than 2 separate rows 
+# reset_index() will compress the headers of the table, forcing them to appear in 1 row rather than 
+2 separate rows 
 ```
 
 `pivot` looks like this:
 
 | CD | Geometry_y | Sales_millions | Store | Council_Member | Population 
-| ---| ---- | --- | --- | --- | ---| ---| 
+| ---| ---- | --- | --- | --- | ---| 
 | 1 | polygon  | $9 | 2 | Leslie Knope | 1,500 
 | 2 | polygon | $8.5 | 2 | Jeremy Jamm | 2,000
 | 3 | polygon  | $2.5 | 1 | Douglass Howser | 2,250 
