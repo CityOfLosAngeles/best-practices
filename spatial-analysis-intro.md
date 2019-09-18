@@ -146,7 +146,7 @@ Some examples of questions that buffers help answer are:
 * Which streets are within 5 miles of the mall?
 * Which census tracts or neighborhoods are within a half mile of the rail station?
 
-Small buffers can also be used to determine whether 2 points are located in the same place. A shopping mall or the park might sit on a large property. If points are geocoded to various areas of the mall / park, they would show up as 2 distinct locations, when in reality, we consider them the same location. 
+Small buffers can also be used to determine whether 2 points are located in the same place. A shopping mall or the park might sit on a large property. If points are geocoded to various areas of the mall/park, they would show up as 2 distinct locations, when in reality, we consider them the same location. 
 
 We start with two point shapefiles: `locations` (Paunch Burger locations) and `homes` (home addresses for my 2 friends). The goal is to find out how many Paunch Burgers are located within a 2 miles of my friends.
 
@@ -194,7 +194,7 @@ homes_buffer['geometry] = homes.geometry.buffer(two_miles)
 Do a spatial join between `locations` and `homes_buffer`. Repeat the process of spatial join and aggregation in Python as illustrated in the previous section (spatial join and dissolve in ArcGIS).
 
 ```
-sjoin = gpd.sjoin(locations, homes_buffer, how = 'inner', op = 'intersects)
+sjoin = gpd.sjoin(locations, homes_buffer, how = 'inner', op = 'intersects')
 sjoin
 ```
 
@@ -213,11 +213,11 @@ Count the number of Paunch Burger locations for each friend.
 
 ```
 count = sjoin.pivot_table(index = 'Name', 
-    values = 'Store', aggfunc = 'count).reset_index()
+    values = 'Store', aggfunc = 'count').reset_index()
 
 OR 
 
-count = sjoin.groupby('Name').agg({'Store':'count}).reset_index()
+count = sjoin.groupby('Name').agg({'Store':'count'}).reset_index()
 ```
 
 The final `count`:

@@ -105,7 +105,7 @@ for key, value in boundaries.items():
     join_df = gpd.sjoin(df, value, how = 'inner', op = 'intersects')
     # Aggregate and save results into results dictionary
     results[agg_df] = join_df.groupby('ID').agg(
-        {'Business': 'count', 'Sales_millions': 'sum})
+        {'Business': 'count', 'Sales_millions': 'sum'})
 ```
 
 Our results dictionary contains 2 dataframes: `council_summary` and `planning_summary`. We can see the contents of the results dictionary using this:
