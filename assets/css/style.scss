@@ -27,9 +27,15 @@ body {
 table {
   border-collapse: collapse;
   border: 1px #8c8c8c;
-  width: 75%;
+  width: 50%;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
+  text-align: center
+}
+
+th {
+  background-color: #8c8c8c;
+  color: white
 }
 
 th, td {
