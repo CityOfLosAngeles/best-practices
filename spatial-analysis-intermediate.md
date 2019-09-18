@@ -1,4 +1,4 @@
-# Intermediate: Working with Geospatial Data
+# Working with Geospatial Data: Intermediate
 
 Place matters. After breezing through the [intro tutorial](./spatial-analysis-intro.md), you're ready to take your spatial analysis to the next level. 
 

@@ -9,18 +9,19 @@ and the reasoning behind those practices.
 This is a living document -- pull requests are welcome!
 
 ## Contents
-### [Charting](./charting.md)
 ### [Git/GitHub](./github.md)
 ### [Jupyter Notebooks](./notebooks.md)
 ### [Data Pipelines](./data-pipeline.md)
 ### [Data Management / Files](./data-management.md)
-### [Data Analysis Tutorials](./data-analysis-intro.md)
-1. [Introduction](./data-analysis-intro.md)
-### [Spatial Analysis Tutorials](./spatial-analysis-basics.md)
-1. [Getting Started / Basics](./spatial-analysis-basics.md)
-2. [Introduction](./spatial-analysis-intro.md)
-3. [Intermediate](./spatial-analysis-intermediate.md)
-4. [Advanced](./spatial-analysis-advanced.md)
+### [Style Guide and Charting](./charting.md)
+### Resources
+1. [Data Analysis: Introduction](./data-analysis-intro.md)
+2. [Data Analysis: Intermediate](./data-analysis-intermediate.md)
+3. [Working with Geospatial Data: Basics](./spatial-analysis-basics.md)
+4. [Working with Geospatial Data: Introduction](./spatial-analysis-intro.md)
+5. [Working with Geospatial Data: Intermediate](./spatial-analysis-intermediate.md)
+6. [Working with Geospatial Data: Advanced](./spatial-analysis-advanced.md)
+7. [Sample Jupyter Notebooks](https://github.com/CityOfLosAngeles/notebook-demos)
 
 ### [Reading list](./reading-list.md)
 
