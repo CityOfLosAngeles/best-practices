@@ -8,7 +8,7 @@ github_username:  CityOfLosAngeles
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-merlot
+theme: jekyll-theme-cayman
 
 plugins:
   - jekyll-readme-index
