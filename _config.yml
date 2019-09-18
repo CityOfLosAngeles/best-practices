@@ -17,7 +17,7 @@ plugins:
   - jekyll-default-layout
   - jekyll-titles-from-headings
 
-  exclude:
+exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
