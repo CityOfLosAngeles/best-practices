@@ -47,7 +47,7 @@ This style guide ensures a more uniform finish in Excel.
      
 <h3>Three to Five Groups Categorical
     </h3>
-    <h4> Blue-Green
+<h4> Blue-Green
     </h4>
 <table class="myTable">
 	<tr>
@@ -106,8 +106,8 @@ This style guide ensures a more uniform finish in Excel.
 	</tr>
 </table> 
     
-<h3>Blue Sequential 
-    </h3>
+<h3>Blue Sequential </h3>
+
 <table class="myTable">
     <tr>
 		<th>1</th>
@@ -136,8 +136,7 @@ This style guide ensures a more uniform finish in Excel.
 <br> 5-color gradient: 1, 3, 5, 7, 8
 
 
-<h3>Green Sequential 
-    </h3>
+<h3>Green Sequential </h3>
 <table class="myTable">
     <tr>
 		<th>1</th>
@@ -165,10 +164,10 @@ This style guide ensures a more uniform finish in Excel.
 <br> 4-color gradient: 1, 3, 6, 8
 <br> 5-color gradient: 1, 3, 5, 7, 8
 
-<h3>Diverging 
-    </h3>
-    <h4>Blue-Orange (Urban Institute)
-    </h4>
+<h3>Diverging </h3>
+
+<h4>Blue-Orange (Urban Institute)</h4>
+
 <table class="myTable">
     <tr>
 		<th>1</th>
