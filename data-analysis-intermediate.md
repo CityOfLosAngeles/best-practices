@@ -2,8 +2,8 @@
 
 After polishing off the [intro tutorial](./data-analysis-intro.md), you're ready to devour some more techniques to simplify your life as a data analyst. 
 
-* [Looping over columns with a dictionary](/data-analysis-intermediate.md#Looping-over-columns-with-a-dictionary)
-* [Looping over dataframes with a dictionary](/data-analysis-intermediate.md#Looping-over-dataframes-with-a-dictionary)
+* [Looping over columns with a dictionary](data-analysis-intermediate.md#Looping-over-columns-with-a-dictionary)
+* [Looping over dataframes with a dictionary](data-analysis-intermediate.md#Looping-over-dataframes-with-a-dictionary)
 
 
 ## Getting Started
