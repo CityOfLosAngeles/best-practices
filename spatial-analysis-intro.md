@@ -52,7 +52,7 @@ merge
 
 Sometimes with a point shapefile (list of lat/lon points), we want to count how many points fall within the boundary. Unlike the previous example, these points aren't attached with Council District information, so we need to generate that ourselves.
 
-The ArcGIS equivalent of this is a <b> spatial join </b> between the point and polygon shapefiles, then <b> dissolving </b> to calculate summary statistics.
+The ArcGIS equivalent of this is a **spatial join** between the point and polygon shapefiles, then **dissolving** to calculate summary statistics.
 
 ```
 locations = gpd.read_file('../folder/paunch_burger_locations.geojson)

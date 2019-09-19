@@ -69,11 +69,11 @@ The ArcGIS equivalent of this is in [3 related concepts](https://pro.arcgis.com/
 2. datum transformation
 3. projected coordinate system
 
-The <b> geographic coordinate system</b> is the coordinate system of the latitude and longitude points. Common ones are WGS84, NAD83, and NAD27.
+The **geographic coordinate system** is the coordinate system of the latitude and longitude points. Common ones are WGS84, NAD83, and NAD27.
 
-<b> Datum transformation </b> is needed when the geographic coordinate systems of two layers do not match. A datum transformation is needed to convert NAD1983 into WGS84.
+**Datum transformation** is needed when the geographic coordinate systems of two layers do not match. A datum transformation is needed to convert NAD1983 into WGS84.
 
-The <b>projected coordinate system</b> projects the coordinates onto the map. ArcGIS projects "on the fly", and applies the first layer's projection to all subsequent layers. The projection does not change the coordinates from WGS84, but displays the points from a 3D sphere onto a 2D map. The projection determines how the Earth's sphere is unfolded and flattened. 
+The **projected coordinate system** projects the coordinates onto the map. ArcGIS projects "on the fly", and applies the first layer's projection to all subsequent layers. The projection does not change the coordinates from WGS84, but displays the points from a 3D sphere onto a 2D map. The projection determines how the Earth's sphere is unfolded and flattened. 
 
 In ArcGIS, layers must have the same geographic coordinate system and projected coordinate system before spatial analysis can occur. Since ArcGIS allows you to choose the map units (i.e., feet, miles, meters) for proximity analysis, projections are chosen primarily for the region to be mapped.
 
