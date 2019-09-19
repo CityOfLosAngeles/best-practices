@@ -6,7 +6,50 @@
 header {
   display: flex;
   align-items: center;
+  font-size: larger;
+  color: black;
 }
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.highlight {
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.highlighter-rouge {
+  background-color: #f2f2f2;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1.2px solid #737373;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+th {
+  background-color: white;
+}
+
+th, td {
+  padding: 5px;
+  border: 1px solid #737373;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
+
+
 /**
  * Images
  */
