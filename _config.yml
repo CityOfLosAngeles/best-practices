@@ -1,8 +1,7 @@
 # Jekyll config for CityOfLosAngeles/best-practices
 title: Los Angeles Best Practices
 description: >- # this means to ignore newlines until "baseurl:"
-  Best practices for data science and analysis projects at the 
-  City of Los Angeles
+  Best practices for data science and analysis projects at the City of Los Angeles
 baseurl: "/best-practices" # the subpath of your site, e.g. /blog
 url: "CityOfLosAngeles.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  CityOfLosAngeles
