@@ -46,7 +46,9 @@ This style guide ensures a more uniform finish in Excel.
 
      
 <h3>Three to Five Groups Categorical</h3>
-<h4> Blue-Green </h4>
+
+<h4>Blue-Green</h4>
+
 <table class="myTable">
 	<tr>
 		<th>Rich Electric Blue</th>
