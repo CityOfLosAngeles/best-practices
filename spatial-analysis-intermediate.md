@@ -55,8 +55,8 @@ df.rename(columns = {'X': 'longitude', 'Y':'latitude'}, inplace=True)
 # Set CRS
 df.crs = {'init':'epsg:4326'}
 
-# Project to different CRS. Pawnee is in Indiana, so we'll use EPSG:2965. In southern California, 
-use EPSG:2229.
+# Project to different CRS. Pawnee is in Indiana, so we'll use EPSG:2965. 
+# In southern California, use EPSG:2229.
 df = df.to_crs({'init':'epsg:2965'})
 
 df

@@ -68,8 +68,8 @@ paunch_locations, but only once in council_population.
 Next, merge `merge1` and `council_boundaries`. Use CD and District as the column to match on.
 
 ```
-merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD', right_on = 'District', 
-    how = 'left', validate = 'm:1')
+merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD', 
+    right_on = 'District', how = 'left', validate = 'm:1')
 ```
 
 `merge2` is a geodataframe (gdf) because the <i><b> base, </i></b> `paunch_locations`, is a gdf. `merge2` looks like this:
@@ -91,7 +91,8 @@ Method #1: Write a function using if-else statement and apply it using a lambda 
 ```
 # The function is called elected_year, and it operates on every row.
 def elected_year(row):
-    # For each row, if Council_Member says 'Leslie Knope', then return 2012 as the value.
+    # For each row, if Council_Member says 'Leslie Knope', then return 2012 
+    # as the value.
     if row.Council_Member == 'Leslie Knope':
         return 2012
     elif row.Council_Member == 'Jeremy Jamm':
@@ -101,7 +102,8 @@ def elected_year(row):
 
 # Use a lambda function to apply the elected_year function to all rows in the df. 
 # Don't forget axis = 1 (apply function to all rows)!
-council_population['Elected'] = council_population.apply(lambda row: elected_year(row), axis = 1)
+council_population['Elected'] = council_population.apply(lambda row: 
+    elected_year(row), axis = 1)
 
 council_population
 ```
@@ -160,11 +162,13 @@ pivot = merge2.groupby(['CD', 'Geometry_y']).agg({'Sales_millions': 'sum',
 # Method #2: pivot table
 pivot = merge2.pivot_table(index= ['CD', 'Geometry_y'], 
     values = ['Sales_millions', 'Store', 'Population'], 
-    aggfunc= {'Sales_millions': 'sum', 'Store': 'count', 'Population': 'mean'}).reset_index()
+    aggfunc= {'Sales_millions': 'sum', 'Store': 'count', 
+        'Population': 'mean'}).reset_index()
 
     # to only find one type of summary statistic, use aggfunc = 'sum'
 
-# reset_index() will compress the headers of the table, forcing them to appear in 1 row rather than 
+# reset_index() will compress the headers of the table, forcing them to appear 
+# in 1 row rather than 
 2 separate rows 
 ```
 
