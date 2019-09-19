@@ -44,6 +44,7 @@ This style guide ensures a more uniform finish in Excel.
 	</tr>    
 </table>
 
+
      
 <h3>Three to Five Groups Categorical</h3>
 
