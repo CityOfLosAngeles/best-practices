@@ -7,13 +7,13 @@ header {
   display: flex;
   align-items: center;
   font-size: larger;
-  color: black;
+  color: #262626;
 }
 
 body {
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 760px;
   font-family: "Roboto", "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -31,8 +31,8 @@ body {
 
 table {
   border-collapse: collapse;
-  border: 1.2px solid #737373;
-  width: 70%;
+  border: 1px solid #737373;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -45,6 +45,7 @@ th {
 th, td {
   padding: 5px;
   border: 1px solid #737373;
+  font-size: 14px;
 }
 
 tr:nth-child(odd) {background-color: #f2f2f2;}
@@ -59,8 +60,9 @@ img {
 }
 
 img.logo {
-  border: 0;
   box-shadow: none;
   width: 192px;
   height: 192px;
+  margin-left: 30px;
+  margin-top: 5px;
 }

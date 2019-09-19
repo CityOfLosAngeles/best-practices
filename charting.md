@@ -45,10 +45,8 @@ This style guide ensures a more uniform finish in Excel.
 </table>
 
      
-<h3>Three to Five Groups Categorical
-    </h3>
-<h4> Blue-Green
-    </h4>
+<h3>Three to Five Groups Categorical</h3>
+	<h4> Blue-Green </h4>
 <table class="myTable">
 	<tr>
 		<th>Rich Electric Blue</th>
@@ -68,8 +66,7 @@ This style guide ensures a more uniform finish in Excel.
 </table>
     
     
-<h4>Blue
-    </h4>
+<h4>Blue</h4>
 <table class="myTable">
 	<tr>
 		<th>Space Cadet</th>
@@ -87,8 +84,7 @@ This style guide ensures a more uniform finish in Excel.
 	</tr>
 </table>
 
-<h4>Green 
-    </h4>
+<h4>Green </h4>
 <table class="myTable">
     <tr>
 		<th>English Green</th>
@@ -192,8 +188,7 @@ This style guide ensures a more uniform finish in Excel.
 </table> 
 
     
-<h4>Gray-Red
-    </h4>
+<h4>Gray-Red</h4>
 <table class="myTable">
     <tr>
 		<th>1</th>

@@ -1,12 +1,12 @@
-# Intermediate: Working with Geospatial Data
+# Working with Geospatial Data: Intermediate
 
 Place matters. After breezing through the [intro tutorial](./spatial-analysis-intro.md), you're ready to take your spatial analysis to the next level. 
 
 Below are short demos of other common manipulations of geospatial data. 
-* [Create geometry column from latitude and longitude coordinates](#Create-geometry-column-from-latitude-and-longitude-coordinates)
-* [Use a loop to do spatial joins and aggregations over different boundaries](#Use-a-loop-to-do-spatial-joins-and-aggregations-over-different-boundaries)
-* [More complicated explanation of geometry (WKTElement and WKBElement)](#More-complicated-geometry)
-* [Multiple geometry columns](#Multiple-geometry-columns)
+* [Create geometry column from latitude and longitude coordinates](#create-geometry-column-from-latitude-and-longitude-coordinates)
+* [Use a loop to do spatial joins and aggregations over different boundaries](#use-a-loop-to-do-spatial-joins-and-aggregations-over-different-boundaries)
+* [More complicated explanation of geometry (WKTElement and WKBElement)](#more-complicated-geometry)
+* [Multiple geometry columns](#multiple-geometry-columns)
 
 
 ## Getting Started 

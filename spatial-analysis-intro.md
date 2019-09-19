@@ -1,12 +1,12 @@
-# Intro: Working with Geospatial Data
+# Working with Geospatial Data: Intro
 
 Place matters. That's why data analysis often includes a geospatial or geographic component. Data analysts are called upon to merge tabular and geospatial data, count the number of points within given boundaries, and create a map illustrating the results.   
 
 Below are short demos of common techniques to help get you started with exploring your geospatial data. 
-* [Merging Tabular and Geospatial Data](#Merging-Tabular-and-Geospatial-Data)
-* [Attaching geographic characteristics to all points or lines that fall within a boundary (spatial join and dissolve)](#Attaching-geographic-characteristics-to-all-points-or-lines-that-fall-within-a-boundary)
-* [Aggregating and calculating summary statistics](#Aggregating-and-calculating-summary-statistics)
-* [Buffers](#Buffers)
+* [Merging Tabular and Geospatial Data](#merging-tabular-and-geospatial-data)
+* [Attaching geographic characteristics to all points or lines that fall within a boundary (spatial join and dissolve)](#attaching-geographic-characteristics-to-all-points-or-lines-that-fall-within-a-boundary)
+* [Aggregating and calculating summary statistics](#aggregating-and-calculating-summary-statistics)
+* [Buffers](#buffers)
 
 
 ## Getting Started
@@ -52,7 +52,7 @@ merge
 
 Sometimes with a point shapefile (list of lat/lon points), we want to count how many points fall within the boundary. Unlike the previous example, these points aren't attached with Council District information, so we need to generate that ourselves.
 
-The ArcGIS equivalent of this is a <b> spatial join </b> between the point and polygon shapefiles, then <b> dissolving </b> to calculate summary statistics.
+The ArcGIS equivalent of this is a **spatial join** between the point and polygon shapefiles, then **dissolving** to calculate summary statistics.
 
 ```
 locations = gpd.read_file('../folder/paunch_burger_locations.geojson)
