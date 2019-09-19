@@ -62,7 +62,7 @@ merge1 = pd.merge(paunch_locations, council_population, on = 'CD',
     how = 'inner', validate = 'm:1')
 
 # m:1 many-to-1 merge means that CD appears multiple times in 
-paunch_locations, but only once in council_population.
+# paunch_locations, but only once in council_population.
 ```
 
 Next, merge `merge1` and `council_boundaries`. Use CD and District as the column to match on.
@@ -121,7 +121,6 @@ Method #2: Loop over every value, fill in the new column value, then attach that
 # Create a list to store the new column
 sales_group = []
 
-
 for row in paunch_locations['Sales_millions']:
     # If sales are more than $3M, but less than $5M, tag as moderate.
     if (row >= 3) & (row <= 5) :
@@ -168,8 +167,7 @@ pivot = merge2.pivot_table(index= ['CD', 'Geometry_y'],
     # to only find one type of summary statistic, use aggfunc = 'sum'
 
 # reset_index() will compress the headers of the table, forcing them to appear 
-# in 1 row rather than 
-2 separate rows 
+# in 1 row rather than 2 separate rows 
 ```
 
 `pivot` looks like this:
@@ -189,7 +187,7 @@ Dataframes can be exported into Excel and written into multiple sheets.
 ```
 import xlsxwriter
 
-## init a writer 
+# initiate a writer 
 writer = pd.ExcelWriter('../outputs/filename.xlsx', engine='xlsxwriter')
 
 council_population.to_excel(writer, sheet_name = 'council_pop')

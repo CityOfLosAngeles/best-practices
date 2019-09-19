@@ -5,7 +5,6 @@ Place matters. After breezing through the [intro tutorial](./spatial-analysis-in
 Below are short demos of other common manipulations of geospatial data. 
 * [Create geometry column from latitude and longitude coordinates](#create-geometry-column-from-latitude-and-longitude-coordinates)
 * [Use a loop to do spatial joins and aggregations over different boundaries](#use-a-loop-to-do-spatial-joins-and-aggregations-over-different-boundaries)
-* [More complicated explanation of geometry (WKTElement and WKBElement)](#more-complicated-geometry)
 * [Multiple geometry columns](#multiple-geometry-columns)
 
 
@@ -117,7 +116,7 @@ for key, value in results.items():
 
 # To access the "dataframe", write this:
 results["council_summary"].head()
-results["planning_summary].head()
+results["planning_summary"].head()
 ```
 
 `council_summary` would look like this, with the total count of Business and sum of Sales_millions within the council district:
@@ -137,7 +136,7 @@ Sometimes we want to iterate over different options, and we want to see the resu
 df.to_crs({'init': 'epsg:2965'})
 
 # Add other columns for the different buffers
-df['geometry100] = df.geometry.buffer(100)
+df['geometry100'] = df.geometry.buffer(100)
 df['geometry200'] = df.geometry.buffer(200)
 
 df
