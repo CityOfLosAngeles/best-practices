@@ -3,8 +3,7 @@
 Place matters. After covering the [intermediate tutorial](./spatial-analysis-intermediate.md), you're ready to cover some advancaed spatial analysis topics. 
 
 Below are short demos of __________ . 
-* [Types of Geometric Shapes](#Types-of-Geometric-Shapes)
-* 
+* [Types of Geometric Shapes](#types-of-geometric-shapes)
 * use WKT to write to database, serialization
 
 

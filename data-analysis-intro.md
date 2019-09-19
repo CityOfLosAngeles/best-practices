@@ -2,10 +2,10 @@
 
 Python tutorials for the basics of data cleaning and wrangling abound. [Chris Albon's guide](https://chrisalbon.com/#python) is particularly helpful. Rather than reinventing the wheel, this tutorial instead highlights specific methods and operations that might make your life easier as a data analyst. 
 
-* [Merging tabular and geospatial data](#Merging-tabular-and-geospatial-data)
-* [Grouping](#Grouping)
-* [Aggregating](#Aggregating)
-* [Exporting aggregated output](#Exporting-aggregated-output)
+* [Merging tabular and geospatial data](#merging-tabular-and-geospatial-data)
+* [Grouping](#grouping)
+* [Aggregating](#aggregating)
+* [Exporting aggregated output](#exporting-aggregated-output)
 
 ## Getting Started
 
@@ -206,4 +206,4 @@ gdf.to_file(driver = 'GeoJSON', filename = '../folder/my_geojson.geojson')
 
 <br>
 
-[Next »](./data-analysis-intro.md)
+[Next »](./data-analysis-intermediate.md)

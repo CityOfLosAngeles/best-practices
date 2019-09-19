@@ -3,8 +3,8 @@
 Place matters. That's why data analysis often includes a geospatial or geographic component. Before we wrangle with our data, let's go over the basics and make sure we're properly set up.
 
 Below are short demos for getting started: 
-* [Importing and Exporting Data in Python](#Importing-and-Exporting-Data-in-Python)
-* [Setting and Projecting Coordinate Reference System](#Setting-and-Projecting-Coordinate-Reference-System)
+* [Importing and Exporting Data in Python](#importing-and-exporting-data-in-python)
+* [Setting and Projecting Coordinate Reference System](#setting-and-projecting-coordinate-reference-system)
 
 ## Getting Started
 
