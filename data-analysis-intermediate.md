@@ -2,8 +2,8 @@
 
 After polishing off the [intro tutorial](./data-analysis-intro.md), you're ready to devour some more techniques to simplify your life as a data analyst. 
 
-* [Looping over columns with a dictionary](#Looping-over-columns-with-a-dictionary)
-* [Looping over dataframes with a dictionary](#Looping-over-dataframes-with-a-dictionary)
+* [Looping over columns with a dictionary](data-analysis-intermediate##Looping-over-columns-with-a-dictionary)
+* [Looping over dataframes with a dictionary](data-analysis-intermediate##Looping-over-dataframes-with-a-dictionary)
 
 
 ## Getting Started
@@ -96,6 +96,7 @@ summary_dfs["tom"]
 
 
 `summary_dfs["tom"]`: result of the counting number of Tom's businesses by CD
+
 | ID | Business | Sales_millions  
 | ---| ---- | --- |
 | 1 | 1 | 30 
