@@ -96,6 +96,7 @@ summary_dfs["tom"]
 
 
 `summary_dfs["tom"]`: result of the counting number of Tom's businesses by CD
+
 | ID | Business | Sales_millions  
 | ---| ---- | --- |
 | 1 | 1 | 30 
