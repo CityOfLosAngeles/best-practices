@@ -58,7 +58,8 @@ The ArcGIS equivalent of this is a **spatial join** between the point and polygo
 locations = gpd.read_file('../folder/paunch_burger_locations.geojson)
 gdf = gpd.read_file('../folder/council_boundaries.geojson)
 
-# Make sure both our gdfs are projected to the same coordinate reference system (EPSG:4326 = WGS84)
+# Make sure both our gdfs are projected to the same coordinate reference system 
+(EPSG:4326 = WGS84)
 locations = locations.to_crs({'init':'epsg:4326'})
 gdf = gdf.to_crs({'init':'epsg:4326'})
 ```
@@ -90,8 +91,8 @@ join = gpd.sjoin(locations, gdf, how = 'inner', op = 'intersects)
 
 # how = 'inner' means that we only want to keep observations that matched, 
 i.e locations that were within the council district boundaries.
-# op = 'intersects' means that we are joining based on whether or not the location intersects 
-with the council district.
+# op = 'intersects' means that we are joining based on whether or not the location 
+intersects with the council district.
 ``` 
 
 The `join` gdf looks like this. We lost Stores 4 (Eagleton) and 7 (Indianapolis) because they were outside of Pawnee City Council boundaries.
