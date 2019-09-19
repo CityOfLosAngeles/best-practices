@@ -3,10 +3,10 @@
 Place matters. That's why data analysis often includes a geospatial or geographic component. Data analysts are called upon to merge tabular and geospatial data, count the number of points within given boundaries, and create a map illustrating the results.   
 
 Below are short demos of common techniques to help get you started with exploring your geospatial data. 
-* [Merging Tabular and Geospatial Data](#Merging-Tabular-and-Geospatial-Data)
-* [Attaching geographic characteristics to all points or lines that fall within a boundary (spatial join and dissolve)](#Attaching-geographic-characteristics-to-all-points-or-lines-that-fall-within-a-boundary)
-* [Aggregating and calculating summary statistics](#Aggregating-and-calculating-summary-statistics)
-* [Buffers](#Buffers)
+* [Merging Tabular and Geospatial Data](#merging-tabular-and-geospatial-data)
+* [Attaching geographic characteristics to all points or lines that fall within a boundary (spatial join and dissolve)](#attaching-geographic-characteristics-to-all-points-or-lines-that-fall-within-a-boundary)
+* [Aggregating and calculating summary statistics](#aggregating-and-calculating-summary-statistics)
+* [Buffers](#buffers)
 
 
 ## Getting Started
@@ -52,13 +52,14 @@ merge
 
 Sometimes with a point shapefile (list of lat/lon points), we want to count how many points fall within the boundary. Unlike the previous example, these points aren't attached with Council District information, so we need to generate that ourselves.
 
-The ArcGIS equivalent of this is a <b> spatial join </b> between the point and polygon shapefiles, then <b> dissolving </b> to calculate summary statistics.
+The ArcGIS equivalent of this is a **spatial join** between the point and polygon shapefiles, then **dissolving** to calculate summary statistics.
 
 ```
 locations = gpd.read_file('../folder/paunch_burger_locations.geojson)
 gdf = gpd.read_file('../folder/council_boundaries.geojson)
 
-# Make sure both our gdfs are projected to the same coordinate reference system (EPSG:4326 = WGS84)
+# Make sure both our gdfs are projected to the same coordinate reference system 
+(EPSG:4326 = WGS84)
 locations = locations.to_crs({'init':'epsg:4326'})
 gdf = gdf.to_crs({'init':'epsg:4326'})
 ```
@@ -90,8 +91,8 @@ join = gpd.sjoin(locations, gdf, how = 'inner', op = 'intersects)
 
 # how = 'inner' means that we only want to keep observations that matched, 
 i.e locations that were within the council district boundaries.
-# op = 'intersects' means that we are joining based on whether or not the location intersects 
-with the council district.
+# op = 'intersects' means that we are joining based on whether or not the location 
+intersects with the council district.
 ``` 
 
 The `join` gdf looks like this. We lost Stores 4 (Eagleton) and 7 (Indianapolis) because they were outside of Pawnee City Council boundaries.

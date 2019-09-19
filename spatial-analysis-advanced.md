@@ -2,10 +2,9 @@
 
 Place matters. After covering the [intermediate tutorial](./spatial-analysis-intermediate.md), you're ready to cover some advancaed spatial analysis topics. 
 
-Below are short demos of __________ . 
-* [Types of Geometric Shapes](#Types-of-Geometric-Shapes)
-* 
-* use WKT to write to database, serialization
+Below are more detailed explanations for dealing with geometry in Python. 
+* [Types of Geometric Shapes](#types-of-geometric-shapes)
+* [Geometry In-Memory and in Databases](geometry-in-memory-and-in-databases)
 
 
 ## Getting Started 
@@ -29,16 +28,22 @@ There are six possible geometric shapes that are represented in geospatial data.
 
 The ArcGIS equivalent of these are just points, lines, and polygons.
 
-## Geometry in Geopandas vs 
 
-*** (Notes for this section): Write about in-memory (geopandas) vs WKB/WKT? When is shapely used vs when is geoalchemy used? Is there difference between SRID and EPSG? ***
-
+## Geometry In-Memory and in Databases
 If you're loading a GeoDataFrame (gdf), having the `geometry` column is necessary to do spatial operations in your Python session. The `geometry` column is composed of Shapely objects, such as Point or MultiPoint, LineString or MultiLineString, and Polygon or MultiPolygon.
-
 
 Databases often store geospatial information as well-known text (WKT) or its binary equivalent, well-known binary (WKB). These are well-specified interchange formats for the importing and exporting of geospatial data. Often, querying a database (PostGIS, SpatiaLite, etc) or writing data to the database requires converting the `geometry` column to/from WKT/WKB.
 
-The spatial referencing system identifier (SRID) is the <b>geographic coordinate system</b> of the latitude and longitude coordinates. As you are writing the coordinates into WKT/WKB, don't forget to set the SRID. WGS84 is a common geographic coordinate system to use, which provides latitude and longitude in decimal degrees. The SRID for WGS84 is 4326. [Refresher on geographic coordinated system vs projected coordinated system.](./spatial-analysis-basics.md)
+The spatial referencing system identifier (SRID) is the **geographic coordinate system** of the latitude and longitude coordinates. As you are writing the coordinates into WKT/WKB, don't forget to set the SRID. WGS84 is a common geographic coordinate system to use, which provides latitude and longitude in decimal degrees. The SRID for WGS84 is 4326. [Refresher on geographic coordinated system vs projected coordinated system.](./spatial-analysis-basics.md)
+
+*Shapely* is the Python package used to create the `geometry` column when you're working with the gdf in-memory. *Geoalchemy* is the Python package used to write the `geometry` column into geospatial databases. Unless you're writing the geospatial data into a database, you're most likely sticking with *shapely* rather than *geoalchemy*.  
+
+To summarize:
+
+| Data is used / sourced from... | Python Package | Geometry column | SRID/EPSG 
+| ---| ---- | --- | --- |
+| Local Python session, in-memory | shapely | shapely object: Point, LineString, Polygon and Multi equivalents | CRS is usually set, but most likely will still need to re-project your CRS using EPSG
+| Database (PostGIS, SpatiaLite, etc) | geoalchemy | WKT or WKB | define the SRID  
 
 ``` 
 # Set the SRID
@@ -47,15 +52,7 @@ df = df.dropna(subset=['lat', 'lon'])
 df["geometry"] = df.apply(
     lambda x: WKTElement(Point(x.lon, x.lat).wkt, srid=srid), axis = 1
 )
-
 ```
-
-## WKTElement, etc etc. 
-
-*** (Notes for this section): shapely vs geoalchemy, their use cases for working with geometry. Maybe this section gets folded into the one above ***
-
-* Writing to database with WKT?
-* Use shapely if in gpd
 
 <br>
 

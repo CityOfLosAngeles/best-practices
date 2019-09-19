@@ -2,8 +2,8 @@
 
 After polishing off the [intro tutorial](./data-analysis-intro.md), you're ready to devour some more techniques to simplify your life as a data analyst. 
 
-* [Looping over columns with a dictionary](data-analysis-intermediate##Looping-over-columns-with-a-dictionary)
-* [Looping over dataframes with a dictionary](data-analysis-intermediate##Looping-over-dataframes-with-a-dictionary)
+* [Looping over columns with a dictionary](#looping-over-columns-with-a-dictionary)
+* [Looping over dataframes with a dictionary](#looping-over-dataframes-with-a-dictionary)
 
 
 ## Getting Started
@@ -52,7 +52,8 @@ This type of question is perfect for a loop. Each df is spatially joined `counci
 
 
 ```
-# Save our existing dfs into a dictionary. The business df is named 'pawnee"; the tom df is named 'tom'. 
+# Save our existing dfs into a dictionary. The business df is named 
+# 'pawnee"; the tom df is named 'tom'. 
 dfs = {'pawnee': business, 'tom': tom}
 
 # Create an empty dictionary called summary_dfs to hold the results
@@ -68,7 +69,8 @@ for key, value in dfs.items():
     join_df = "join_{key}"
     # Spatial join
     join_df = gpd.sjoin(value, council_district, how = 'inner', op = 'intersects')
-    # Calculate summary stats with groupby, agg, then save it into summary_dfs, naming it 'pawnee' or 'tom'.
+    # Calculate summary stats with groupby, agg, then save it into summary_dfs, 
+    # naming it 'pawnee' or 'tom'.
     summary_dfs[key] = join.groupby('ID').agg(
         {'Business': 'count', 'Sales_millions': 'sum'})
 ```
