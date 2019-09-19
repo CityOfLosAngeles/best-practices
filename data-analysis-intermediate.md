@@ -59,7 +59,7 @@ dfs = {'pawnee': business, 'tom': tom}
 # Create an empty dictionary called summary_dfs to hold the results
 summary_dfs = {}
 
-# Loop over key-value pair. 
+# Loop over key-value pairs 
 ## Keys: pawnee, tom (names given to dataframes)
 ## Values: business, tom (dataframes)
 
@@ -108,4 +108,4 @@ summary_dfs["tom"]
 
 <br>
 
-[« Previous](./data-analysis-intro.md)
+[« Previous](./data-analysis-intro.md) &nbsp; &nbsp; [Next »](./spatial-analysis-basics.md)

@@ -52,7 +52,7 @@ s3.upload_file('../folder/my_geojson.geojson',
     'bucket-name', 's3_filename.geojson') 
 ``` 
 
-Additional general information about various file types can be found in the [Data Management best practices](./data-management.md).
+Additional general information about various file types can be found in the [Data Management section](./data-management.md).
 
 
 ## Setting and Projecting Coordinate Reference System
@@ -104,4 +104,4 @@ There are [lots of CRS available](https://epsg.io). The most common ones used in
 
 <br>
 
-[Next »](./spatial-analysis-intro.md)
+[« Previous](./data-analysis-intermediate.md) &nbsp; &nbsp; [Next »](./spatial-analysis-intro.md)

@@ -55,11 +55,11 @@ Sometimes with a point shapefile (list of lat/lon points), we want to count how 
 The ArcGIS equivalent of this is a **spatial join** between the point and polygon shapefiles, then **dissolving** to calculate summary statistics.
 
 ```
-locations = gpd.read_file('../folder/paunch_burger_locations.geojson)
-gdf = gpd.read_file('../folder/council_boundaries.geojson)
+locations = gpd.read_file('../folder/paunch_burger_locations.geojson')
+gdf = gpd.read_file('../folder/council_boundaries.geojson')
 
 # Make sure both our gdfs are projected to the same coordinate reference system 
-(EPSG:4326 = WGS84)
+# (EPSG:4326 = WGS84)
 locations = locations.to_crs({'init':'epsg:4326'})
 gdf = gdf.to_crs({'init':'epsg:4326'})
 ```
@@ -87,12 +87,12 @@ gdf = gdf.to_crs({'init':'epsg:4326'})
 A spatial join finds the Council District the location falls within and attaches that information. 
 
 ```
-join = gpd.sjoin(locations, gdf, how = 'inner', op = 'intersects)
+join = gpd.sjoin(locations, gdf, how = 'inner', op = 'intersects')
 
 # how = 'inner' means that we only want to keep observations that matched, 
-i.e locations that were within the council district boundaries.
+# i.e locations that were within the council district boundaries.
 # op = 'intersects' means that we are joining based on whether or not the location 
-intersects with the council district.
+# intersects with the council district.
 ``` 
 
 The `join` gdf looks like this. We lost Stores 4 (Eagleton) and 7 (Indianapolis) because they were outside of Pawnee City Council boundaries.
@@ -112,12 +112,12 @@ We want to count the number of Paunch Burger locations and their total sales wit
 ```
 summary = join.pivot_table(index = ['District', 'Geometry_y], 
     values = ['Store', 'Sales_millions'], 
-    aggfunc = {'Store': 'count', 'Sales_millions': 'sum}).reset_index()
+    aggfunc = {'Store': 'count', 'Sales_millions': 'sum'}).reset_index()
 
 OR
 
 summary = join.groupby(['District', 'Geometry_y']).agg({'Store': 'count', 
-    'Sales_millions': 'sum}).reset_index()
+    'Sales_millions': 'sum'}).reset_index()
 
 summary.rename(column = {'Geometry_y': 'Geometry'}, inplace = True)
 summary
@@ -187,7 +187,7 @@ homes_buffer = homes.copy()
 # Overwrite the existing geometry and change it from point to polygon
 miles_to_feet = 5280
 two_miles = 2 * miles_to_feet
-homes_buffer['geometry] = homes.geometry.buffer(two_miles)
+homes_buffer['geometry'] = homes.geometry.buffer(two_miles)
 ```
 
 ### <b> Selecting points within a buffer </b>
