@@ -1,4 +1,4 @@
-# Intro: Working with Geospatial Data
+# Working with Geospatial Data: Intro
 
 Place matters. That's why data analysis often includes a geospatial or geographic component. Data analysts are called upon to merge tabular and geospatial data, count the number of points within given boundaries, and create a map illustrating the results.   
 
