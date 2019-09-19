@@ -46,7 +46,7 @@ This style guide ensures a more uniform finish in Excel.
 
      
 <h3>Three to Five Groups Categorical</h3>
-	<h4> Blue-Green </h4>
+<h4> Blue-Green </h4>
 <table class="myTable">
 	<tr>
 		<th>Rich Electric Blue</th>
@@ -122,8 +122,8 @@ This style guide ensures a more uniform finish in Excel.
 		<td style="background-color:#78B0CA;color:black;">#78B0CA<br>rgb(120, 176, 202)</td>
         <td style="background-color:#5F84A9;color:white;">#5F84A9<br>rgb(101, 132, 160)</td>
         <td style="background-color:#4B6A8A;color:white;">#4B6A8A<br>rgb(75, 106, 138)</td>
-        <td style="background-color:#315174;color:white;">#315174<br>rgb(49, 81, 116)</td>
-        <td style="background-color:#17375E;color:white;">#17375E<br>rgb(23, 55, 94)</td>           
+        <td style="background-color:#315174;color:white;">#315174<br>rgb(49, 81, 116) </td>
+        <td style="background-color:#17375E;color:white;">#17375E<br>rgb(23, 55, 94 )</td>           
 	</tr>    
 </table>    
 
@@ -151,8 +151,8 @@ This style guide ensures a more uniform finish in Excel.
 		<td style="background-color:#76B18B;color:black;">#76B18B<br>rgb(118, 177, 139)</td>
         <td style="background-color:#609B77;color:white;">#609B77<br>rgb(96, 155, 119)</td>
         <td style="background-color:#4A8663;color:white;">#4A8663<br>rgb(74, 134, 99)</td>
-        <td style="background-color:#347050;color:white;">#347050<br>rgb(52, 112, 80)</td>
-        <td style="background-color:#1E5B3C;color:white;">#1E5B3C<br>rgb(30, 91, 60)</td>           
+        <td style="background-color:#347050;color:white;">#347050<br>rgb(52, 112, 80) </td>
+        <td style="background-color:#1E5B3C;color:white;">#1E5B3C<br>rgb(30, 91, 60) </td>           
 	</tr>
 </table> 
 
@@ -182,8 +182,8 @@ This style guide ensures a more uniform finish in Excel.
 		<td style="background-color:#FFF2CF;color:black;">#FFF2CF<br>rgb(255, 242, 267)</td>
         <td style="background-color:#CFE8F3;color:black;">#CFE8F3<br>rgb(207, 232, 243)</td>
         <td style="background-color:#73BFE2;color:black;">#73BFE2<br>rgb(115, 191, 226)</td>
-        <td style="background-color:#1696D2;color:white;">#1696D2<br>rgb(22, 150, 210)</td>
-        <td style="background-color:#0A4C6A;color:white;">#0A4C6A<br>rgb(10, 76, 106)</td>           
+        <td style="background-color:#1696D2;color:white;">#1696D2<br>rgb(22, 150, 210) </td>
+        <td style="background-color:#0A4C6A;color:white;">#0A4C6A<br>rgb(10, 76, 106) </td>           
 	</tr>
 </table> 
 
