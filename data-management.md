@@ -2,8 +2,22 @@
 
 Data Management is hard, and before you know it, you can ended up with `final_final_final_project_data-2019.csv.bak` as the source of your project data.
 
-Below is a series of tips, tricks and usecases for managing data throughout the lifecycle of a projects. 
+Below is a series of tips, tricks and use-cases for managing data throughout the lifecycle of a projects. 
 
+* [Reading and Writing Data](#reading-and-writing-data)
+    * [S3](#s3)
+    * [Local Folders](#local-folders)
+    * [Databases](#databases)
+* [Formats and Use-Cases](#formats-and-use-cases)
+    * [CSVs](#csvs)
+    * [Excel / XLSX](#excel--xlsx)
+    * [Parquet](#parquet)
+    * [Feather Files](#feather-files)  
+    * [GeoJSON](#geojson)   
+    * [Shapefiles](#shapefiles)
+    * [PBF (Protocolbuffer Binary Format)](#pbf-protocolbuffer-binary-format) 
+    * [Databases](#databases-1) 
+    * [Pickles](#pickles)      
 
 ## Reading and Writing Data 
 ### S3
@@ -59,7 +73,7 @@ pd.read_sql(query,engine)
 
 Note: This example shows how to make sure that Geometry types are inserted into POSTGIS (a point example) and limits the number of rows returned to 10 in the Query. You can execute abritrary SQL inside `pd.read_sql()`.
 
-## Formats and use-cases 
+## Formats and Use-cases 
 Data Interchange: Where everything can be broken.
 
 ### CSVs 
@@ -119,7 +133,7 @@ feather.write_dataframe(df, path)
 df = feather.read_dataframe(path)
 ```
 
-### GeoJSON:
+### GeoJSON
 GeoJSON is an [open-standard format](https://geojson.org/) for encoding a variety of geographic data structures usin JavaScript Object Notation (JSON)  A GeoJSON object may represent a region of space (a Geometry), a spatially bounded entity (a Feature), or a list of Features (a FeatureCollection). It supports geometry types: Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection. JSON is light and easier to read than most geospatial formats, but GeoJSON files can quickly get too large to handle. The upside is that a GeoJSON file is often easier to work with than a Shapefile.
 
 ### Shapefiles 
@@ -143,7 +157,7 @@ if not os.path.exists('./outputs/my_dir_name'):
 gdf.to_file('./outputs/my_dir_name')
 ```
 
-### PBF (Protocolbuffer Binary Format):
+### PBF (Protocolbuffer Binary Format)
 Protocol Buffers is a method of serializing structured data. It is used for storing and interchanging structured information of all types. PBF involves an interface description language that describes the structure of some data and a program that generates source code from that description for generating or parsing a stream of bytes that represents the structured data. As compared to XML, it is designed to be simpler and quicker. A benefit of using PBF is that you can define how you want your data to be structured once and then use special generated source code to easily write and read your structured data to and from a variety of data streams. It is also possible to update the defined data structure without breaking deployed programs that are compiled against the older structure/format. Although PBF was designed as a better medium for communication between systems than XML, it only has some marginal advantages when compared to JSON.
 
 ### Databases 

@@ -17,7 +17,13 @@ see [this](https://www.youtube.com/watch?v=7jiPeIFXb6U) talk from Joel Grus.
 
 This document is meant to outline some recommendations for how to best use notebooks.
 
-### Notebooks and reproducibility
+* [Notebooks and Reproducibility](#notebooks-and-reproducibility)
+* [Notebooks and Version Control](#notebooks-and-version-control)
+* [Prose and Documentation](#prose-and-documentation)
+* [Data Access](#data-access)
+
+
+### Notebooks and Reproducibility
 
 [Scientific](https://arxiv.org/abs/1605.04339)
 [software](http://gael-varoquaux.info/programming/software-for-reproducible-science-lets-not-have-a-misunderstanding.html)
@@ -49,7 +55,7 @@ if a notebook analysis cannot be run without human intervention, it is not repro
 
 This all can be summarized as "restart and run all, or it didn't happen."
 
-### Notebooks and version control
+### Notebooks and Version Control
 
 Jupyter notebooks are stored as JSON documents.
 While this is a rich format for storing things like
@@ -92,7 +98,7 @@ One of the most remarkable findings of this study was just how many notebooks in
 Over a quarter of notebooks include no prose.
 We should endeavor to *not* be in that first bin.
 
-### Data access
+### Data Access
 
 Many attempts to reproduce data analyses fail quickly.
 
@@ -112,4 +118,4 @@ Tools like [intake](https://intake.readthedocs.io/en/latest/) can help here.
 and never stored in code repositories or saved to notebooks.
 The environment variables needed to access the data for an analysis should be documented in the project `README`.
 
-More detailed recommendations may be found in [data-pipeline.md](./data-pipeline.md).
+More detailed recommendations may be found in [Data Pipelines](./data-pipeline.md).
