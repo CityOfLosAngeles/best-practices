@@ -13,7 +13,15 @@ Establishing good practices with data ingest can prevent leaking of authenticati
 
 The following are some tools that can help with establishing a robust data pipeline:
 
-### Makefiles
+* [Makefiles](#makefiles)
+* [Catalogs](#catalogs)
+  * [Open Data Portals](#open-data-portals)
+  * [Intake Catalogs](#intake-catalogs)
+* [Version Control](#version-control)
+* [Credentials](#credentials)
+
+
+## Makefiles
 
 Makefiles provide a plain-text way to describe data pipelines that run locally.
 They describe a series of rules that tell the computer how to execute commands to produce target files.
@@ -53,7 +61,7 @@ More reading on why Makefiles are useful and best-practice guides for using them
 * [Why use Make](https://bost.ocks.org/mike/make/)
 * [Style Guide for Make](http://clarkgrubb.com/makefile-style-guide#data-workflows)
 
-### Catalogs
+## Catalogs
 
 One major difficulty with conducting reproducible analyses is the location of data.
 If a data scientist downloads a CSV on their local system,
@@ -63,7 +71,7 @@ the analysis becomes very difficult to reproduce.
 One strategy to deal with this is to create data catalogs for projects,
 which describe the data sources used and how to access them.
 
-##### **Open Data Portals**
+### **Open Data Portals**
 
 Open data portals (such as the LA GeoHub) usually provide a
 [DCAT](https://www.w3.org/TR/vocab-dcat) catalog for their datasets,
@@ -72,7 +80,7 @@ including links for downloading them and metadata describing them.
 Many civic data analysis projects end up using these open datasets.
 When they do, it should be clearly documented.
 
-##### **Intake catalogs**
+### **Intake Catalogs**
 
 Data scientists tend to load their data from many heterogeneous sources (Databases, CSVs, JSON, etc),
 but at the end of the day, they often end up with the data in dataframes
@@ -87,13 +95,13 @@ allowing for more ergonomic documentation of the data sources used for a project
 [`intake-dcat`](https://github.com/CityOfLosAngeles/intake-dcat)
 is a tool for allowing intake to more easily interact with DCAT catalogs.
 
-### Version control
+## Version Control
 
 If a dataset is relatively small (of order a few megabytes) and not changing too often,
 then it may be appropriate to include it in a code repository.
 However, it is important to document in that same repository where the data was downloaded, and any metadata that is important to the analysis.
 
-### Credentials
+## Credentials
 
 Sometimes if data access is expensive, or if there is sensitive data,
 then accessing it will require some sort of credentials

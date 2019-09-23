@@ -2,6 +2,13 @@
 
 This style guide ensures a more uniform finish in Excel.
 
+* [Typography](#typography)
+* [Colors](#colors)
+* [Chart Parts](#chart-parts)
+* [Making Charts](#making-charts)
+* [Color Resources](#color-resources)
+
+
 ## Typography
 <b> Font: </b> Roboto
 
@@ -236,7 +243,7 @@ This style guide ensures a more uniform finish in Excel.
 * Marker fill: rgb(255, 255, 255)
 * Marker border: 1.5 pt width, solid line, same color as series
 
-## Making charts
+## Making Charts
 
 * [Python Chart Gallery](https://python-graph-gallery.com/)
 

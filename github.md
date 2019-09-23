@@ -1,4 +1,3 @@
-
 # Helpful git+GitHub commands
 
 Through your system's command line, you can control your GitHub repositories and branches with great precision. 
@@ -6,6 +5,14 @@ This section is an evolving list of commands for common operations. Note that fo
 
 For a glossary of these terms and more, visit the [github site](https://help.github.com/en/articles/github-glossary). Below are basic steps you can take to create a pull workflow for your github repository.  This flow assumes you already have a repository.
 
+Helpful commands:
+* [Committing](#committing)
+* [Git add](#git-add)
+* [Getting rid of unwanted changes](#getting-rid-of-unwanted-changes)
+* [Incorporating changes in the master branch to your current](#incorporating-changes-in-the-master-branch-to-your-current)
+* [Borrowing a commit from another branch for use in current branch](#borrowing-a-commit-from-another-branch-for-use-in-current-branch)
+* [See the repository's in commit history](#see-the-repositorys-commit-history)
+* [Pull workflow overview](#pull-workflow-overview)
 
 ### Committing 
 
@@ -41,6 +48,7 @@ If you need to reverse the stash, use the following command:
 ### Incorporating changes in the master branch to your current
 
 `git fetch origin`
+
 `git rebase origin/master`
 
 
@@ -48,40 +56,38 @@ If you need to reverse the stash, use the following command:
 
 `git cherry-pick [commit]`
 
-### See the repositories commit history
+### See the repository's commit history
 
 `git log`
+
 
 # Pull workflow overview
 
 Below are basic steps you can take to create a pull workflow for your github repository.  This flow assumes you already have a repository.
 
-### Step 1 - UPDATE TO the master branch
-In the gitshell and root directory of your repo, type `git checkout master` and then `git pull origin master`  to get the latest master code.
+### Step 1 - **UPDATE** the master branch
+In the gitshell and root directory of your repo, type `git checkout master` and then `git pull origin master` to get the latest master code.
 
 ### Step 2 - Create a new branch
 Type `git checkout -b name-of-branch`
 
-### Step 3 - make changes and COMMIT
+### Step 3 - Make changes and **COMMIT**
 Work to address the branch's issue or new feature. Add your changes with `git add .` and make commit(s) with `git commit -m`. 
 
 When the issue/feature is complete and ready for review, you can close the issue with a commit by typing  `git commit -m "fixes #N"`  with #N being the number of the issue. 
 
-### Step 4 - PUSH BRANCH
+### Step 4 - **PUSH BRANCH**
 Type `git push origin [name-of-branch]`
 
-### Step 5 - create a pull request in github
+### Step 5 - Create a pull request in github
 
 ### Step 6 - Merge pull request with github/origin master 
 
-### Step 7 - checkout local master, pull in from upstream/origin
+### Step 7 - Checkout local master, pull in from upstream/origin
 `git checkout master`
+
 `git pull origin master`
 
-### step 8 - Delete branch
+### Step 8 - Delete branch
 To delete the branch locally, run `git branch -d {name-of-branch}`
 
-
-```python
-
-```
