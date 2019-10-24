@@ -26,7 +26,7 @@ df = pd.read_csv('../folder/pawnee_businesses.csv')
 | Gryzzl | x4 | y4 | 40
 
 
-## Create geometry column from latitude and longitude coordinates 
+## Create Geometry Column from Latitude and Longitude Coordinates 
 Sometimes, latitude and longitude coordinates are given in a tabular form. The file is read in as a dataframe (df), but it needs to be converted into a geodataframe (gdf). The `geometry` column contains a Shapely object (point, line, or polygon), and is what makes it a <b>geo</b>dataframe. A gdf can be exported as GeoJSON or shapefile.
 
 In ArcGIS/QGIS, this is equivalent to adding XY data, selecting the columns that correspond to latitude and longitude, and exporting the layer as a shapefile.
@@ -70,7 +70,7 @@ df
 
 
 
-## Use a loop to do spatial joins and aggregations over different boundaries
+## Use a Loop to Do Spatial Joins and Aggregations Over Different Boundaries
 Let's say we want to do a spatial join between `df` to 2 different boundaries. Different government departments often use different boundaries for their operations (i.e. city planning districts, water districts, transportation districts, etc). Looping over dictionary items would be an efficient way to do this.
 
 We want to count how the number of stores and total sales within each Council District and Planning District. 
@@ -128,7 +128,7 @@ results["planning_summary"].head()
 | 3 | 1 | 30 
 
 
-## Multiple geometry columns
+## Multiple Geometry Columns
 Sometimes we want to iterate over different options, and we want to see the results side-by-side. Here, we draw multiple buffers around `df`, specifically, 100 ft and 200 ft buffers.
 
 ```

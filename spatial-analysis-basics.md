@@ -3,8 +3,8 @@
 Place matters. That's why data analysis often includes a geospatial or geographic component. Before we wrangle with our data, let's go over the basics and make sure we're properly set up.
 
 Below are short demos for getting started: 
-* [Importing and Exporting Data in Python](#importing-and-exporting-data-in-python)
-* [Setting and Projecting Coordinate Reference System](#setting-and-projecting-coordinate-reference-system)
+* [Import and export data in Python](#import-and-export-data-in-python)
+* [Setting and projecting coordinate reference system](#setting-and-projecting-coordinate-reference-system)
 
 ## Getting Started
 
@@ -15,8 +15,8 @@ import geopandas as gpd
 import boto3
 ```
 
-## Importing and Exporting Data in Python
-### <b> Local files </b>
+## Import and Export Data in Python
+### **Local files**
 We import a tabular dataframe `my_csv.csv` and a geodataframe `my_geojson.geojson` or `my_shapefile.shp`. 
 ```
 df = pd.read_csv('../folder/my_csv.csv')
@@ -32,7 +32,7 @@ gdf = gpd.read_file('../folder/my_shapefile/')
 gdf.to_file(driver = 'ESRI Shapefile', filename = '../folder/my_shapefile.shp' )
 ```
 
-### <b> S3 </b>
+### **S3**
 Data can also be stored in an Amazon S3 as a bucket storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
 To read in our dataframe (df) and geodataframe (gdf) from S3: 

@@ -3,8 +3,8 @@
 Place matters. After covering the [intermediate tutorial](./spatial-analysis-intermediate.md), you're ready to cover some advancaed spatial analysis topics. 
 
 Below are more detailed explanations for dealing with geometry in Python. 
-* [Types of Geometric Shapes](#types-of-geometric-shapes)
-* [Geometry In-Memory and in Databases](#geometry-in-memory-and-in-databases)
+* [Types of geometric shapes](#types-of-geometric-shapes)
+* [Geometry in-memory and in databases](#geometry-in-memory-and-in-databases)
 
 
 ## Getting Started 
@@ -50,8 +50,7 @@ To summarize:
 srid = 4326
 df = df.dropna(subset=['lat', 'lon'])
 df['geometry'] = df.apply(
-    lambda x: WKTElement(Point(x.lon, x.lat).wkt, srid=srid), axis = 1
-)
+    lambda x: WKTElement(Point(x.lon, x.lat).wkt, srid=srid), axis = 1)
 ```
 
 <br>

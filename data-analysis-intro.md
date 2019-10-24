@@ -2,10 +2,11 @@
 
 Python tutorials for the basics of data cleaning and wrangling abound. [Chris Albon's guide](https://chrisalbon.com/#python) is particularly helpful. Rather than reinventing the wheel, this tutorial instead highlights specific methods and operations that might make your life easier as a data analyst. 
 
-* [Merging tabular and geospatial data](#merging-tabular-and-geospatial-data)
+* [Import and export data in Python](#import-and-export-data-in-python)
+* [Merge tabular and geospatial data](#merge-tabular-and-geospatial-data)
 * [Grouping](#grouping)
 * [Aggregating](#aggregating)
-* [Exporting aggregated output](#exporting-aggregated-output)
+* [Export aggregated output](#export-aggregated-output)
 
 ## Getting Started
 
@@ -15,10 +16,35 @@ import pandas as pd
 import geopandas as gpd
 ```
 
-Refer to the [Data Management best practices](./data-management.md) to get started importing various file types.
+## Import and Export Data in Python
+### **Local files**
+We import a tabular dataframe `my_csv.csv` and an Excel spreadsheet `my_excel.xlsx`. 
+```
+df = pd.read_csv('../folder/my_csv.csv')
+
+df = pd.read_excel('../folder/my_excel.xlsx', sheet_name = 'Sheet1')
+```
+
+### **S3**
+Data can also be stored in an Amazon S3 as a bucket storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+
+To read in our dataframe (df) from S3: 
+
+```
+df = pd.read_csv('s3://bucket-name/my_csv.csv')
 
 
-## Merging tabular and geospatial data
+# To write a file to S3, first save the gdf locally
+import boto3
+s3 = boto3.client('s3')
+
+df.to_csv('s3://bucket-name/my_csv.csv')
+``` 
+
+Refer to the [Data Management best practices](./data-management.md) and [Basics of Working with Geospatial Data](./spatial-analysis-basics.md) to get started importing various file types.
+
+
+## Merge Tabular and Geospatial Data
 Merging data from multiple sources creates one large dataframe (df) to perform data analysis. Let's say there are 3 sources of data that need to be merged:
 
 Dataframe #1: `council_population` (tabular)
@@ -72,7 +98,7 @@ merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD',
     right_on = 'District', how = 'left', validate = 'm:1')
 ```
 
-`merge2` is a geodataframe (gdf) because the <i><b> base, </i></b> `paunch_locations`, is a gdf. `merge2` looks like this:
+`merge2` is a geodataframe (gdf) because the ***base,*** `paunch_locations`, is a gdf. `merge2` looks like this:
 
 | Store | City | Sales_millions | CD | Geometry_x | Council_Member | Population | Geometry_y
 | ---| ---- | --- | --- | --- | ---| ---| ---|
@@ -179,7 +205,7 @@ pivot = merge2.pivot_table(index= ['CD', 'Geometry_y'],
 | 3 | polygon  | $2.5 | 1 | Douglass Howser | 2,250 
 
 
-## Exporting aggregated output
+## Export Aggregated Output
 Python can do most of the heavy lifting for data cleaning, transformations, and general wrangling. But, for charts or tables, it might be preferable to finish in Excel or ArcGIS/QGIS so that visualizations conform to the corporate style guide. 
 
 Dataframes can be exported into Excel and written into multiple sheets.
