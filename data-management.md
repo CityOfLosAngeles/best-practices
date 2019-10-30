@@ -21,7 +21,7 @@ Below is a series of tips, tricks and use-cases for managing data throughout the
 
 ## Reading and Writing Data 
 ### S3
-Our team often uses Amazon S3 as a bucket storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). 
+Our team often uses Amazon S3 for object storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). 
 
 S3 can store anything, of arbitrary object size and shape. It's like a giant folder in the cloud. You can use it to store CSVs, Pickes, Videos, whatever. 
 

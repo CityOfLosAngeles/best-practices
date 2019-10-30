@@ -4,6 +4,7 @@ Place matters. After breezing through the [intro tutorial](./spatial-analysis-in
 
 Below are short demos of other common manipulations of geospatial data. 
 * [Create geometry column from latitude and longitude coordinates](#create-geometry-column-from-latitude-and-longitude-coordinates)
+* [Create geometry column from WKT (well-known text)](#create-geometry-column-from-wkt)
 * [Use a loop to do spatial joins and aggregations over different boundaries](#use-a-loop-to-do-spatial-joins-and-aggregations-over-different-boundaries)
 * [Multiple geometry columns](#multiple-geometry-columns)
 
@@ -68,6 +69,60 @@ df
 | Jurassic Fork | x3 | y3 | 2 | Point(x3, y3) 
 | Gryzzl | x4 | y4 | 40 | Point(x4, y4)
 
+
+## Create Geometry Column from Text 
+If you are importing your df directly from a database, the geometry information might be stored as as text. To create our geometry column, we would extract the latitude and longitude information and use those components to create a Shapely object.
+
+`df` starts off this way, with column `Coord` stored as text: 
+
+| Business | Coord  | Sales_millions | 
+| ---| ---- | --- | 
+| Paunch Burger | (x1, y1) | 5 | 
+| Sweetums | (x2, y2) | 30 | 
+| Jurassic Fork | (x3, y3) | 2 | 
+| Gryzzl | (x4, y4) | 40 | 
+
+
+First, we split `Coord` at the comma.
+
+```
+# We want to expand the result into multiple columns.
+# Save the result and call it new.
+new = df.Coord.str.split(", ", expand = True)
+```
+
+Then, extract our X, Y components. Put lat, lon into a Shapely object as demonstrated [in the prior section.](#create-geometry-column-from-latitude-and-longitude-coordinates)
+
+```
+# Make sure only numbers, not parantheses, are captured. Cast it as float.
+
+# 0 corresponds to the portion before the comma. [1:] means starting from 
+# the 2nd character, right after the opening paranthesis, to the comma. 
+df['lat'] = new[0].str[1:].astype(float)
+
+# 1 corresponds to the portion after the comma. [:-1] means starting from 
+# right after the comma to the 2nd to last character from the end, which 
+# is right before the closing paranthesis.
+df['lon'] = new[1].str[:-1].astype(float)
+```
+
+
+Or, do it in one swift move: 
+
+```
+df['geometry'] = df.dropna(subset=['Coord']).apply(
+    lambda x: Point(
+        float(str(x.Coord).split(",")[0][1:]),
+        float(str(x.Coord).split(",")[1][:-1])
+        ), axis = 1)
+
+
+# Now that you have a geometry column, convert to gdf. 
+df = gpd.GeoDataFrame(df)
+
+# Set the coordinate reference system. You must set it first before you can project.
+df.crs = {'init':'epsg:4326'}
+```
 
 
 ## Use a Loop to Do Spatial Joins and Aggregations Over Different Boundaries

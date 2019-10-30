@@ -29,6 +29,7 @@ Sometimes, you want to create a new column by converting one set of values into 
 
 
 ### **Write a Function**
+[Quick refresher on functions](./data-analysis-intro.md/#functions)
 
 ```
 # Create a function called state_abbrev.

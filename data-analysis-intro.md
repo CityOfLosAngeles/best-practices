@@ -4,6 +4,7 @@ Python tutorials for the basics of data cleaning and wrangling abound. [Chris Al
 
 * [Import and export data in Python](#import-and-export-data-in-python)
 * [Merge tabular and geospatial data](#merge-tabular-and-geospatial-data)
+* [Functions](#functions)
 * [Grouping](#grouping)
 * [Aggregating](#aggregating)
 * [Export aggregated output](#export-aggregated-output)
@@ -26,18 +27,15 @@ df = pd.read_excel('../folder/my_excel.xlsx', sheet_name = 'Sheet1')
 ```
 
 ### **S3**
-Data can also be stored in an Amazon S3 as a bucket storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+Data can also be stored in an Amazon S3 as object storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
-To read in our dataframe (df) from S3: 
 
 ```
+# Read from S3
 df = pd.read_csv('s3://bucket-name/my_csv.csv')
 
 
-# To write a file to S3, first save the gdf locally
-import boto3
-s3 = boto3.client('s3')
-
+# Write to S3
 df.to_csv('s3://bucket-name/my_csv.csv')
 ``` 
 
@@ -98,7 +96,13 @@ merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD',
     right_on = 'District', how = 'left', validate = 'm:1')
 ```
 
-`merge2` is a geodataframe (gdf) because the ***base,*** `paunch_locations`, is a gdf. `merge2` looks like this:
+Here are some things to know about `merge2`:
+* `merge2` is a geodataframe (gdf) because the ***base,*** `paunch_locations`, is a gdf. 
+* Python/Pandas allows the merge to take place even if the `Geometry` column appears in both dfs. The resulting df contains 2 renamed `Geometry` columns;  `Geometry_x` corresponds to the left df `Geometry` and `Geometry_y` for the right df. 
+* Geopandas still designates a geometry to use. To see what is set, type `merge2.geometry.name`. To change the geometry to a different column, type `merge2.set.geometry('new_column')`.
+
+
+`merge2` looks like this:
 
 | Store | City | Sales_millions | CD | Geometry_x | Council_Member | Population | Geometry_y
 | ---| ---- | --- | --- | --- | ---| ---| ---|
@@ -107,6 +111,105 @@ merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD',
 | 3 | Pawnee  | $2.5 | 3 | (x3, y3) | Douglass Howser | 2,250 | polygon
 | 5 | Pawnee  | $4 | 1 | (x5, y5) | Leslie Knope | 1,500 | polygon
 | 6 | Pawnee  | $6 | 2 | (x6, y6)  | Jeremy Jamm | 2,000 | polygon
+
+
+## Functions
+A function is a set of instructions to *do something*. It can be as simple as changing values in a column or as complicated as a series of steps to clean, group, aggregate, and plot the data. 
+
+### **Lambda Functions**
+Lambda functions are quick and dirty. You don't even have to name the function! These are used for one-off functions that you don't need to save for repeated use within the script or notebook. You can use it for any simple function (i.e., if-else statements, etc) you want to apply to all rows of the df. 
+
+
+`df`: Andy Dwyer's band names and number of songs played under that name
+
+| Band | Songs    
+| ---| ---- |  
+| Mouse Rat | 30  
+| Scarecrow Boat | 15 
+| Jet Black Pope | 4   
+| Nothing Rhymes with Orange | 6  
+
+### *if-else statements*
+
+```
+# Create column called duration. If Songs > 10, duration is 'long'. 
+# Otherwise, duration is 'short'.
+df['duration'] = df.apply(lambda row: 'long' if row.Songs > 10 
+                else 'short', axis = 1)
+
+# Create column called famous. If Band is 'Mouse Rat', famous is 1, 
+# otherwise 0.
+df['famous'] = df.apply(lambda row: 1 if row.Band == 'Mouse Rat' 
+                else 0, axis = 1)
+
+# An equivalent full function would be:
+def tag_famous(row):
+    if Band == 'Mouse Rat':
+        return 1
+    else:
+        return 0
+
+df['famous] = df.apply(tag_famous, axis = 1)
+
+df
+```
+
+| Band | Songs | duration | famous | 
+| ---| ---- |  --- | --- |
+| Mouse Rat | 30  | long | 1 |
+| Scarecrow Boat | 15 | long | 0
+| Jet Black Pope | 4  |  short | 0
+| Nothing Rhymes with Orange | 6 | short | 0 
+
+
+### *Other Lambda Functions*
+
+```
+# Split the band name at the spaces
+# [1] means we want to extract the second word
+# [0:2] means we want to start at the first character 
+# and stop at (but not include) the 3rd character 
+df['word2_start'] = df.apply(lambda x: 
+                    x.Band.split(" ")[1][0:2], axis = 1)
+df
+```
+
+| Band | Songs | word2_start  | 
+| ---| ---- |  --- | 
+| Mouse Rat | 30  | Ra |
+| Scarecrow Boat | 15 | Bo 
+| Jet Black Pope | 4  |  Po 
+| Nothing Rhymes with Orange | 6 | Or 
+
+
+### **Apply over Dataframe**
+Functions that are more complicated for a lambda function would use a full function. These functions are defined by a name and are called upon to operate on the rows of a dataframe. You can also write more complex functions that bundle together all the steps (including nesting more functions) you want to execute over the dataframe.
+
+`df.apply` is one common usage of a function.
+
+```
+def years_active(row):
+    if row.Band == 'Mouse Rat':
+        return '2009-2014'
+    elif row.Band == 'Scarecrow Boat':
+        return '2009'
+    elif (row.Band == 'Jet Black Pope') or (row.Band ==
+    'Nothing Rhymes with Orange'):
+        return '2008'
+    
+
+df['Active'] = df.apply(years_active, axis = 1)
+
+df
+```
+
+| Band | Songs | Active  | 
+| ---| ---- |  --- | 
+| Mouse Rat | 30  | 2009-2014 |
+| Scarecrow Boat | 15 | 2009 
+| Jet Black Pope | 4  |  2008 
+| Nothing Rhymes with Orange | 6 | 2008 
+
 
 
 ## Grouping
