@@ -2,8 +2,9 @@
 
 After polishing off the [intro tutorial](./data-analysis-intro.md), you're ready to devour some more techniques to simplify your life as a data analyst. 
 
-* [Looping over columns with a dictionary](#looping-over-columns-with-a-dictionary)
-* [Looping over dataframes with a dictionary](#looping-over-dataframes-with-a-dictionary)
+* [Create a new column using a dictionary to map the values](#create-a-new-column-using-a-dictionary-to-map-the-values)
+* [Loop over columns with a dictionary](#loop-over-columns-with-a-dictionary)
+* [Loop over dataframes with a dictionary](#loop-over-dataframes-with-a-dictionary)
 
 
 ## Getting Started
@@ -14,7 +15,92 @@ import pandas as pd
 import geopandas as gpd
 ```
 
-## Looping over columns with a dictionary
+## Create a New Column Using a Dictionary to Map the Values
+Sometimes, you want to create a new column by converting one set of values into a different set of values. We could write a function or we could use the map function to add a new column. For our `df`, we want a new column that shows the state.
+
+`df`: person and birthplace
+
+| Person | Birthplace |  
+| ---| ---- |  
+| Leslie Knope | Eagleton, Indiana 
+| Tom Haverford | South Carolina | 
+| Ann Perkins | Michigan |
+| Ben Wyatt | Partridge, Minnesota | 
+
+
+### **Write a Function**
+[Quick refresher on functions](./data-analysis-intro.md/#functions)
+
+```
+# Create a function called state_abbrev.
+def state_abbrev(row):
+    # The find function returns the index of where 'Indiana' is found in
+    #the column. If it cannot find it, it returns -1.
+    if row.Birthplace.find('Indiana') != -1:
+        return 'IN'
+    elif row.Birthplace.find('South Carolina') != -1:
+        return 'SC'
+    # For an exact match, we would write it this way.
+    elif row.Birthplace == 'Michigan':
+        return 'MI'
+    elif row.Birthplace.find('Minnesota') != -1:
+        return 'MI'
+
+# Apply this function and create the State column.
+df['State'] = df.apply(state_abbrev, axis = 1)
+```
+
+### **Use a Dictionary to Map the Values**
+But, writing a function could take up a lot of space, especially with all the if-elif-else statements. Alternatively, a dictionary would also work. We could use a dictionary and map the four different city-state values into the state abbreviation.
+
+```
+state_abbrev1 = {'Eagleton, Indiana': 'IN', 'South Carolina': 'SC',
+                'Michigan': 'MI', 'Partridge, Minnesota': 'MN'}
+
+df['State'] = df.Birthplace.map(state_abbrev1)
+```
+
+But, if wanted to avoid writing out all the possible combinations, we would first extract the *state* portion of the city-state text. Then we could map the state's full name with its abbreviation.
+
+```
+# The split function splitd at the comma and expand the columns. 
+# Everything is stored in a new df called 'fullname'.
+fullname = df4['Birthplace'].str.split(",", expand = True) 
+
+# Add the City column into our df by extracting the first column (0) from fullname. 
+df['City'] = fullname[0]
+
+# Add the State column by extracting the second column (1) from fullname.
+df['State_full'] = fullname[1]
+
+
+# Tom Haverford's birthplace is South Carolina. We don't have city information.
+# So, the City column would be incorrectly filled in with South Carolina, and
+# the State would say None.
+# Fix these so the Nones actually display the state information correctly.
+
+df['State_full'] = df.apply(lambda row: row.City if row.State == None else 
+                    row.State_full, axis = 1)
+
+# Now, use a dictionary to map the values.
+state_abbrev2 = {'Indiana': 'IN', 'South Carolina': 'SC',
+                'Michigan': 'MI', 'Minnesota': 'MN'}
+
+df['State'] = df.Birthplae.map(state_abbrev2)
+```
+
+All 3 methods would give us this `df`:
+
+| Person | Birthplace | State | 
+| ---| ---- | --- |
+| Leslie Knope | Eagleton, Indiana | IN |
+| Tom Haverford | South Carolina | SC |
+| Ann Perkins | Michigan | MI |
+| Ben Wyatt | Partridge, Minnesota | MN |
+
+
+
+## Loop over Columns with a Dictionary
 If there are operations or data transformations that need to be performed on multiple columns, the best way to do that is with a loop.
 
 ```
@@ -27,7 +113,7 @@ for c in columns:
     df[c] = df[c] * 0.5
 ```
 
-## Looping over dataframes with a dictionary
+## Loop over Dataframes with a Dictionary
 It's easier and more efficient to use a loop to do the same operations over the different dataframes (df). Here, we want to find the number of Pawnee businesses and Tom Haverford businesses are located in each Council District. 
 
 This type of question is perfect for a loop. Each df is spatially joined `council_district`, followed by some aggregation. 
@@ -104,7 +190,7 @@ summary_dfs["tom"]
 | 1 | 1 | 30 
 | 3 | 2 | 5 
 
- 
+
 
 <br>
 

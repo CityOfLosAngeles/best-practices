@@ -2,10 +2,12 @@
 
 Python tutorials for the basics of data cleaning and wrangling abound. [Chris Albon's guide](https://chrisalbon.com/#python) is particularly helpful. Rather than reinventing the wheel, this tutorial instead highlights specific methods and operations that might make your life easier as a data analyst. 
 
-* [Merging tabular and geospatial data](#merging-tabular-and-geospatial-data)
+* [Import and export data in Python](#import-and-export-data-in-python)
+* [Merge tabular and geospatial data](#merge-tabular-and-geospatial-data)
+* [Functions](#functions)
 * [Grouping](#grouping)
 * [Aggregating](#aggregating)
-* [Exporting aggregated output](#exporting-aggregated-output)
+* [Export aggregated output](#export-aggregated-output)
 
 ## Getting Started
 
@@ -15,10 +17,32 @@ import pandas as pd
 import geopandas as gpd
 ```
 
-Refer to the [Data Management best practices](./data-management.md) to get started importing various file types.
+## Import and Export Data in Python
+### **Local files**
+We import a tabular dataframe `my_csv.csv` and an Excel spreadsheet `my_excel.xlsx`. 
+```
+df = pd.read_csv('../folder/my_csv.csv')
+
+df = pd.read_excel('../folder/my_excel.xlsx', sheet_name = 'Sheet1')
+```
+
+### **S3**
+Data can also be stored in an Amazon S3 as object storage. To access data in S3, you'll have to have AWS access credentials stored at `~/.aws/credentials` per the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
 
-## Merging tabular and geospatial data
+```
+# Read from S3
+df = pd.read_csv('s3://bucket-name/my_csv.csv')
+
+
+# Write to S3
+df.to_csv('s3://bucket-name/my_csv.csv')
+``` 
+
+Refer to the [Data Management best practices](./data-management.md) and [Basics of Working with Geospatial Data](./spatial-analysis-basics.md) to get started importing various file types.
+
+
+## Merge Tabular and Geospatial Data
 Merging data from multiple sources creates one large dataframe (df) to perform data analysis. Let's say there are 3 sources of data that need to be merged:
 
 Dataframe #1: `council_population` (tabular)
@@ -72,7 +96,13 @@ merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD',
     right_on = 'District', how = 'left', validate = 'm:1')
 ```
 
-`merge2` is a geodataframe (gdf) because the <i><b> base, </i></b> `paunch_locations`, is a gdf. `merge2` looks like this:
+Here are some things to know about `merge2`:
+* `merge2` is a geodataframe (gdf) because the ***base,*** `paunch_locations`, is a gdf. 
+* Pandas allows the merge to take place even if the `Geometry` column appears in both dfs. The resulting df contains 2 renamed `Geometry` columns;  `Geometry_x` corresponds to the left df `Geometry` and `Geometry_y` for the right df. 
+* Geopandas still designates a geometry to use. To see what is set, type `merge2.geometry.name`. To change the geometry to a different column, type `merge2 = merge2.set_geometry('new_column')`.
+
+
+`merge2` looks like this:
 
 | Store | City | Sales_millions | CD | Geometry_x | Council_Member | Population | Geometry_y
 | ---| ---- | --- | --- | --- | ---| ---| ---|
@@ -81,6 +111,105 @@ merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD',
 | 3 | Pawnee  | $2.5 | 3 | (x3, y3) | Douglass Howser | 2,250 | polygon
 | 5 | Pawnee  | $4 | 1 | (x5, y5) | Leslie Knope | 1,500 | polygon
 | 6 | Pawnee  | $6 | 2 | (x6, y6)  | Jeremy Jamm | 2,000 | polygon
+
+
+## Functions
+A function is a set of instructions to *do something*. It can be as simple as changing values in a column or as complicated as a series of steps to clean, group, aggregate, and plot the data. 
+
+### **Lambda Functions**
+Lambda functions are quick and dirty. You don't even have to name the function! These are used for one-off functions that you don't need to save for repeated use within the script or notebook. You can use it for any simple function (e.g., if-else statements, etc) you want to apply to all rows of the df. 
+
+
+`df`: Andy Dwyer's band names and number of songs played under that name
+
+| Band | Songs    
+| ---| ---- |  
+| Mouse Rat | 30  
+| Scarecrow Boat | 15 
+| Jet Black Pope | 4   
+| Nothing Rhymes with Orange | 6  
+
+### *if-else statements*
+
+```
+# Create column called duration. If Songs > 10, duration is 'long'. 
+# Otherwise, duration is 'short'.
+df['duration'] = df.apply(lambda row: 'long' if row.Songs > 10 
+                else 'short', axis = 1)
+
+# Create column called famous. If Band is 'Mouse Rat', famous is 1, 
+# otherwise 0.
+df['famous'] = df.apply(lambda row: 1 if row.Band == 'Mouse Rat' 
+                else 0, axis = 1)
+
+# An equivalent full function would be:
+def tag_famous(row):
+    if Band == 'Mouse Rat':
+        return 1
+    else:
+        return 0
+
+df['famous] = df.apply(tag_famous, axis = 1)
+
+df
+```
+
+| Band | Songs | duration | famous | 
+| ---| ---- |  --- | --- |
+| Mouse Rat | 30  | long | 1 |
+| Scarecrow Boat | 15 | long | 0
+| Jet Black Pope | 4  |  short | 0
+| Nothing Rhymes with Orange | 6 | short | 0 
+
+
+### *Other Lambda Functions*
+
+```
+# Split the band name at the spaces
+# [1] means we want to extract the second word
+# [0:2] means we want to start at the first character 
+# and stop at (but not include) the 3rd character 
+df['word2_start'] = df.apply(lambda x: 
+                    x.Band.split(" ")[1][0:2], axis = 1)
+df
+```
+
+| Band | Songs | word2_start  | 
+| ---| ---- |  --- | 
+| Mouse Rat | 30  | Ra |
+| Scarecrow Boat | 15 | Bo 
+| Jet Black Pope | 4  |  Po 
+| Nothing Rhymes with Orange | 6 | Or 
+
+
+### **Apply over Dataframe**
+Functions that are too complicated for a lambda function would use a full function. These functions are defined by a name and are called upon to operate on the rows of a dataframe. You can also write more complex functions that bundle together all the steps (including nesting more functions) you want to execute over the dataframe.
+
+`df.apply` is one common usage of a function.
+
+```
+def years_active(row):
+    if row.Band == 'Mouse Rat':
+        return '2009-2014'
+    elif row.Band == 'Scarecrow Boat':
+        return '2009'
+    elif (row.Band == 'Jet Black Pope') or (row.Band ==
+    'Nothing Rhymes with Orange'):
+        return '2008'
+    
+
+df['Active'] = df.apply(years_active, axis = 1)
+
+df
+```
+
+| Band | Songs | Active  | 
+| ---| ---- |  --- | 
+| Mouse Rat | 30  | 2009-2014 |
+| Scarecrow Boat | 15 | 2009 
+| Jet Black Pope | 4  |  2008 
+| Nothing Rhymes with Orange | 6 | 2008 
+
 
 
 ## Grouping
@@ -179,7 +308,7 @@ pivot = merge2.pivot_table(index= ['CD', 'Geometry_y'],
 | 3 | polygon  | $2.5 | 1 | Douglass Howser | 2,250 
 
 
-## Exporting aggregated output
+## Export Aggregated Output
 Python can do most of the heavy lifting for data cleaning, transformations, and general wrangling. But, for charts or tables, it might be preferable to finish in Excel or ArcGIS/QGIS so that visualizations conform to the corporate style guide. 
 
 Dataframes can be exported into Excel and written into multiple sheets.

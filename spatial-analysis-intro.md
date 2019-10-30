@@ -3,9 +3,9 @@
 Place matters. That's why data analysis often includes a geospatial or geographic component. Data analysts are called upon to merge tabular and geospatial data, count the number of points within given boundaries, and create a map illustrating the results.   
 
 Below are short demos of common techniques to help get you started with exploring your geospatial data. 
-* [Merging Tabular and Geospatial Data](#merging-tabular-and-geospatial-data)
-* [Attaching geographic characteristics to all points or lines that fall within a boundary (spatial join and dissolve)](#attaching-geographic-characteristics-to-all-points-or-lines-that-fall-within-a-boundary)
-* [Aggregating and calculating summary statistics](#aggregating-and-calculating-summary-statistics)
+* [Merge tabular and geospatial data](#merge-tabular-and-geospatial-data)
+* [Attach geographic characteristics to all points or lines that fall within a boundary (spatial join and dissolve)](#attach-geographic-characteristics-to-all-points-or-lines-that-fall-within-a-boundary)
+* [Aggregate and calculate summary statistics](#aggregate-and-calculate-summary-statistics)
 * [Buffers](#buffers)
 
 
@@ -17,7 +17,7 @@ import pandas as pd
 import geopandas as gpd
 ```
 
-## Merging Tabular and Geospatial Data
+## Merge Tabular and Geospatial Data
 We might have two files: Council District boundaries (geospatial) and population values (tabular). Through visual inspection, we know that `CD` and `District` are columns that help us make this match.
 
 Our dataframe looks like this:
@@ -48,7 +48,7 @@ merge
 | 2 | polygon | 2 | Jeremy Jamm | 2,000
 | 3 | polygon | 3 | Douglass Howser | 2,250
 
-## Attaching geographic characteristics to all points or lines that fall within a boundary
+## Attach Geographic Characteristics to All Points or Lines That Fall Within a Boundary
 
 Sometimes with a point shapefile (list of lat/lon points), we want to count how many points fall within the boundary. Unlike the previous example, these points aren't attached with Council District information, so we need to generate that ourselves.
 
@@ -106,7 +106,7 @@ The `join` gdf looks like this. We lost Stores 4 (Eagleton) and 7 (Indianapolis)
 | 6 | Pawnee  | $6 | (x6, y6) | 2 | polygon
 
 
-## Aggregating and calculating summary statistics
+## Aggregate and Calculate Summary Statistics
 We want to count the number of Paunch Burger locations and their total sales within each District.
 
 ```
@@ -190,7 +190,7 @@ two_miles = 2 * miles_to_feet
 homes_buffer['geometry'] = homes.geometry.buffer(two_miles)
 ```
 
-### <b> Selecting points within a buffer </b>
+### **Select Points Within a Buffer**
 
 Do a spatial join between `locations` and `homes_buffer`. Repeat the process of spatial join and aggregation in Python as illustrated in the previous section (spatial join and dissolve in ArcGIS).
 
