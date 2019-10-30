@@ -98,8 +98,8 @@ merge2 = pd.merge(merge1, council_boundaries, left_on = 'CD',
 
 Here are some things to know about `merge2`:
 * `merge2` is a geodataframe (gdf) because the ***base,*** `paunch_locations`, is a gdf. 
-* Python/Pandas allows the merge to take place even if the `Geometry` column appears in both dfs. The resulting df contains 2 renamed `Geometry` columns;  `Geometry_x` corresponds to the left df `Geometry` and `Geometry_y` for the right df. 
-* Geopandas still designates a geometry to use. To see what is set, type `merge2.geometry.name`. To change the geometry to a different column, type `merge2.set.geometry('new_column')`.
+* Pandas allows the merge to take place even if the `Geometry` column appears in both dfs. The resulting df contains 2 renamed `Geometry` columns;  `Geometry_x` corresponds to the left df `Geometry` and `Geometry_y` for the right df. 
+* Geopandas still designates a geometry to use. To see what is set, type `merge2.geometry.name`. To change the geometry to a different column, type `merge2 = merge2.set_geometry('new_column')`.
 
 
 `merge2` looks like this:
@@ -117,7 +117,7 @@ Here are some things to know about `merge2`:
 A function is a set of instructions to *do something*. It can be as simple as changing values in a column or as complicated as a series of steps to clean, group, aggregate, and plot the data. 
 
 ### **Lambda Functions**
-Lambda functions are quick and dirty. You don't even have to name the function! These are used for one-off functions that you don't need to save for repeated use within the script or notebook. You can use it for any simple function (i.e., if-else statements, etc) you want to apply to all rows of the df. 
+Lambda functions are quick and dirty. You don't even have to name the function! These are used for one-off functions that you don't need to save for repeated use within the script or notebook. You can use it for any simple function (e.g., if-else statements, etc) you want to apply to all rows of the df. 
 
 
 `df`: Andy Dwyer's band names and number of songs played under that name
@@ -183,7 +183,7 @@ df
 
 
 ### **Apply over Dataframe**
-Functions that are more complicated for a lambda function would use a full function. These functions are defined by a name and are called upon to operate on the rows of a dataframe. You can also write more complex functions that bundle together all the steps (including nesting more functions) you want to execute over the dataframe.
+Functions that are too complicated for a lambda function would use a full function. These functions are defined by a name and are called upon to operate on the rows of a dataframe. You can also write more complex functions that bundle together all the steps (including nesting more functions) you want to execute over the dataframe.
 
 `df.apply` is one common usage of a function.
 

@@ -71,7 +71,7 @@ df
 
 
 ## Create Geometry Column from Text 
-If you are importing your df directly from a database, the geometry information might be stored as as text. To create our geometry column, we would extract the latitude and longitude information and use those components to create a Shapely object.
+If you are importing your df directly from a CSV or database, the geometry information might be stored as as text. To create our geometry column, we would extract the latitude and longitude information and use those components to create a Shapely object.
 
 `df` starts off this way, with column `Coord` stored as text: 
 
@@ -120,7 +120,8 @@ df['geometry'] = df.dropna(subset=['Coord']).apply(
 # Now that you have a geometry column, convert to gdf. 
 df = gpd.GeoDataFrame(df)
 
-# Set the coordinate reference system. You must set it first before you can project.
+# Set the coordinate reference system. You must set it first before you 
+# can project.
 df.crs = {'init':'epsg:4326'}
 ```
 
