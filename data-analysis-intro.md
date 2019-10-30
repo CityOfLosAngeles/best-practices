@@ -34,7 +34,6 @@ Data can also be stored in an Amazon S3 as object storage. To access data in S3,
 # Read from S3
 df = pd.read_csv('s3://bucket-name/my_csv.csv')
 
-
 # Write to S3
 df.to_csv('s3://bucket-name/my_csv.csv')
 ``` 
@@ -129,7 +128,7 @@ Lambda functions are quick and dirty. You don't even have to name the function! 
 | Jet Black Pope | 4   
 | Nothing Rhymes with Orange | 6  
 
-### *if-else statements*
+### *If-Else Statements*
 
 ```
 # Create column called duration. If Songs > 10, duration is 'long'. 
@@ -144,12 +143,12 @@ df['famous'] = df.apply(lambda row: 1 if row.Band == 'Mouse Rat'
 
 # An equivalent full function would be:
 def tag_famous(row):
-    if Band == 'Mouse Rat':
+    if row.Band == 'Mouse Rat':
         return 1
     else:
         return 0
 
-df['famous] = df.apply(tag_famous, axis = 1)
+df['famous'] = df.apply(tag_famous, axis = 1)
 
 df
 ```
@@ -196,10 +195,8 @@ def years_active(row):
     elif (row.Band == 'Jet Black Pope') or (row.Band ==
     'Nothing Rhymes with Orange'):
         return '2008'
-    
 
 df['Active'] = df.apply(years_active, axis = 1)
-
 df
 ```
 

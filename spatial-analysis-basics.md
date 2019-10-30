@@ -44,7 +44,6 @@ gdf = gpd.read_file('zip+s3://bucket-name/my-shapefile.zip')
 
 
 # To write a file to S3, first save the gdf locally
-import boto3
 s3 = boto3.client('s3')
 
 gdf.to_file(driver = 'GeoJSON', filename = '../folder/my_geojson.geojson')

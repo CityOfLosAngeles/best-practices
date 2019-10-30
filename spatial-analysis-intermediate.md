@@ -4,7 +4,7 @@ Place matters. After breezing through the [intro tutorial](./spatial-analysis-in
 
 Below are short demos of other common manipulations of geospatial data. 
 * [Create geometry column from latitude and longitude coordinates](#create-geometry-column-from-latitude-and-longitude-coordinates)
-* [Create geometry column from WKT (well-known text)](#create-geometry-column-from-wkt)
+* [Create geometry column from text](#create-geometry-column-from-text)
 * [Use a loop to do spatial joins and aggregations over different boundaries](#use-a-loop-to-do-spatial-joins-and-aggregations-over-different-boundaries)
 * [Multiple geometry columns](#multiple-geometry-columns)
 

@@ -20,7 +20,7 @@ import geopandas as gpd
 ## Merge Tabular and Geospatial Data
 We might have two files: Council District boundaries (geospatial) and population values (tabular). Through visual inspection, we know that `CD` and `District` are columns that help us make this match.
 
-Our dataframe looks like this:
+`df`: population by council district
 
 | CD | Council_Member | Population |
 | ---| ---- | --- |
@@ -28,7 +28,7 @@ Our dataframe looks like this:
 | 2 | Jeremy Jamm | 2,000 
 | 3 | Douglass Howser | 2,250
 
-Our geodataframe looks like this:
+`gdf`: council district boundaries
 
 | District | Geometry 
 | ---| ---- | 

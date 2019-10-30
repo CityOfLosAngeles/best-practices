@@ -65,7 +65,7 @@ But, if wanted to avoid writing out all the possible combinations, we would firs
 ```
 # The split function splitd at the comma and expand the columns. 
 # Everything is stored in a new df called 'fullname'.
-fullname = df4['Birthplace'].str.split(",", expand = True) 
+fullname = df['Birthplace'].str.split(",", expand = True) 
 
 # Add the City column into our df by extracting the first column (0) from fullname. 
 df['City'] = fullname[0]
@@ -86,7 +86,7 @@ df['State_full'] = df.apply(lambda row: row.City if row.State == None else
 state_abbrev2 = {'Indiana': 'IN', 'South Carolina': 'SC',
                 'Michigan': 'MI', 'Minnesota': 'MN'}
 
-df['State'] = df.Birthplae.map(state_abbrev2)
+df['State'] = df.Birthplace.map(state_abbrev2)
 ```
 
 All 3 methods would give us this `df`:
