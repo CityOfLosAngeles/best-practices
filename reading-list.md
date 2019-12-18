@@ -7,6 +7,9 @@
 * [Ops to the Nines - Basic Ops on Cloud Providers](https://source.opennews.org/articles/ops-nines/)
 * [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science)
 * [UK Gov Data Science to Reproducibility](https://ukgovdatascience.github.io/rap-website/rap-companion-14-final-thoughts.html)
+* [Sane Data Updates are Harder than you think](https://source.opennews.org/articles/sane-data-updates-are-harder-you-think/)
+* [Sane Data Updates, pt 2](https://source.opennews.org/articles/sane-data-updates-are-harder-you-think-part-2/)
+* [Sane Data Updates, pt 3](https://source.opennews.org/articles/sane-data-updates-are-harder-you-think-part-3/)
 
 ## Books
 * [The Performance Stat Potential](https://www.brookings.edu/book/the-performancestat-potential/)
