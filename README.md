@@ -22,6 +22,7 @@ This is a living document -- pull requests are welcome!
 5. [Working with Geospatial Data: Intermediate](./spatial-analysis-intermediate.md)
 6. [Working with Geospatial Data: Advanced](./spatial-analysis-advanced.md)
 7. [Sample Jupyter Notebooks](https://github.com/CityOfLosAngeles/notebook-demos)
+8. [Getting Started with GitHub](./getting-started-guide.md)
 
 ### [Reading list](./reading-list.md)
 
