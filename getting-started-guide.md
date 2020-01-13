@@ -2,7 +2,7 @@
 
 It's your first day on the job, and getting your environment all set up is a big hassle. Hopefully, you've been added as a user to our shared JupyterHub platform. If you'd like to be, shoot us an [email](mailto:ITAData@lacity.org)! Otherwise, if you already do work in Python or R, but want to check that work into version control, then this guide will get you started.
 
-On a Windows machine, you'll need to have a terminal ready. We recommended either [Git for Windows](https://git-scm.com/download/win) or WSL/Ubuntu (search "Ubuntu" in the Microsoft Store). Mac and Linux machines already come with one installed. The terminal is where you'll be typing these Git commands.
+On a Windows machine, you'll need to have a terminal ready. We recommend either [Git for Windows](https://git-scm.com/download/win) or WSL/Ubuntu (search "Ubuntu" in the Microsoft Store). Mac and Linux machines already come with one installed. The terminal is where you'll be typing these Git commands.
 
 * [Create a GitHub repository](#create-a-github-repository-and-sync-local-and-remote-repos)
 * [Typical project workflow](#typical-project-workflow)
@@ -23,6 +23,8 @@ Files to include in version control are:
     * Dockerfile
     * Data catalogs
     * Plain text files
+    * Other sources for documentation
+    * Maybe some small datasets (<10MB, even though Git has a 100MB limit)
     
 
 * Turn this folder into a Git repo: `git init`
