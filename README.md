@@ -10,18 +10,19 @@ This is a living document -- pull requests are welcome!
 
 ## Contents
 ### [Git/GitHub](./github.md)
+* [Getting Started with GitHub Guide](./getting-started-github.md)
 ### [Jupyter Notebooks](./notebooks.md)
+* [Sample Jupyter Notebooks](https://github.com/CityOfLosAngeles/notebook-demos)
 ### [Data Pipelines](./data-pipeline.md)
 ### [Data Management / Files](./data-management.md)
 ### [Style Guide and Charting](./charting.md)
-### Resources
+### Tutorials
 1. [Data Analysis: Introduction](./data-analysis-intro.md)
 2. [Data Analysis: Intermediate](./data-analysis-intermediate.md)
 3. [Working with Geospatial Data: Basics](./spatial-analysis-basics.md)
 4. [Working with Geospatial Data: Introduction](./spatial-analysis-intro.md)
 5. [Working with Geospatial Data: Intermediate](./spatial-analysis-intermediate.md)
 6. [Working with Geospatial Data: Advanced](./spatial-analysis-advanced.md)
-7. [Sample Jupyter Notebooks](https://github.com/CityOfLosAngeles/notebook-demos)
 
 ### [Reading list](./reading-list.md)
 
