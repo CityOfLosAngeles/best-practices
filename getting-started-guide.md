@@ -54,7 +54,7 @@ git log
 ```
 
 * On your GitHub browser, create a new repository with the same `folder_name`. 
-* Grab the link, which looks like `https://github.com/my_username/folder_name.git`
+* Grab the link, which looks like `https://github.com/my_username/folder_name.git`. If you're working under the City of Los Angeles organization, the link looks like `https://github.com/CityofLosAngeles/folder_name.git`.
 * Link the local and remote repository, and call the remote repository "origin":
 
 ```
@@ -68,7 +68,7 @@ git remote -v
 
 
 ## Typical project workflow
-There are many collaborators on a project/GitHub repo. The **master** branch is the main branch, the canonical source and official code for the project. Any tasks that individual collaborators are working on should be done off of separate branches. [Read more about branches in GitHub here](https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/) 
+There are many collaborators on a project/GitHub repo. The **master** branch is the main branch, the canonical source and official code for the project. Any tasks that individual collaborators are working on should be done off of separate branches. [Learn all about branches in GitHub here](https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/) 
 
 * Before you start your new task, make sure you sync up with the master: `git pull origin master`
 * Create a new branch to do your task: `git checkout -b my-new-branch`
