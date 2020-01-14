@@ -13,7 +13,6 @@ We will create a local folder and add some files. Then, we'll go to our GitHub a
 
 1. Change into the directory where your project files live: `cd my-username/folder_name`
 2. Files to include in version control are:
-
     * Python/R scripts (.py, .R)
     * Markdown files (.md, .Rmd)
     * Notebooks: (.ipynb)
@@ -28,40 +27,40 @@ We will create a local folder and add some files. Then, we'll go to our GitHub a
 3. Turn this folder into a Git repo: `git init`
 4. First time users need to configure their GitHub credentials in their bash:
     
-```
-git config --global user.name my_username
-git config --global user.email my_email@lacity.org
-```
+    ```
+    git config --global user.name my_username
+    git config --global user.email my_email@lacity.org
+    ```
 
 5. Add the files you've changed and commit it:
     
-```
-# To add specific files
-git add notebook1.ipynb script2.py README.md
+    ```
+    # To add specific files
+    git add notebook1.ipynb script2.py README.md
 
-# To add specific file types (use asterisk)
-git add *.ipynb  # adds all notebooks
-git add *.py  # adds all Python scripts
+    # To add specific file types (use asterisk)
+    git add *.ipynb  # adds all notebooks
+    git add *.py  # adds all Python scripts
 
-# Commit those changes, and add a human-readable commit message
-# to describe the work. This message will be saved in the project history.
-git commit -m "Added new data"
+    # Commit those changes, and add a human-readable commit message
+    # to describe the work. This message will be saved in the project history.
+    git commit -m "Added new data"
 
-# To see which files have uncommitted changes at any point
-git status
-git log
-```
+    # To see which files have uncommitted changes at any point
+    git status
+    git log
+    ```
 
 6. On your GitHub browser, create a new repository with the same `folder_name`. 
 7. Grab the link, which looks like `https://github.com/my_username/folder_name.git`. If you're working under the City of Los Angeles organization, the link looks like `https://github.com/CityofLosAngeles/folder_name.git`.
 8. Link the local and remote repository, and call the remote repository "origin":
 
-```
-git remote add origin https://github.com/my_username/folder_name.git
+    ```
+    git remote add origin https://github.com/my_username/folder_name.git
 
-# List what the remote repositories are. The -v stands for verbose.
-git remote -v
-```
+    # List what the remote repositories are. The -v stands for verbose.
+    git remote -v
+    ```
 
 9. Push the changes in your local repo to the remote repo: `git push origin master`
 
@@ -73,11 +72,11 @@ There are many collaborators on a project/GitHub repo. The **master** branch is 
 2. Create a new branch to do your task: `git checkout -b my-new-branch`
 3. Make changes and commit changes to the remote repo
     
-```
-git add *
-git commit -m "Here is my commit message"
-git push origin my-new-branch
-```
+    ```
+    git add *
+    git commit -m "Here is my commit message"
+    git push origin my-new-branch
+    ```
 
 4. The `my-new-branch` can be merged with the master branch when the task is complete on the GitHub browser.
 5. Delete your old branch: `git branch -d my-new-branch`
