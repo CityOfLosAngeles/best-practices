@@ -11,11 +11,14 @@ This is a living document -- pull requests are welcome!
 ## Contents
 ### [Git/GitHub](./github.md)
 * [Getting Started with GitHub Guide](./getting-started-github.md)
+
 ### [Jupyter Notebooks](./notebooks.md)
 * [Sample Jupyter Notebooks](https://github.com/CityOfLosAngeles/notebook-demos)
+
 ### [Data Pipelines](./data-pipeline.md)
 ### [Data Management / Files](./data-management.md)
 ### [Style Guide and Charting](./charting.md)
+
 ### Tutorials
 1. [Data Analysis: Introduction](./data-analysis-intro.md)
 2. [Data Analysis: Intermediate](./data-analysis-intermediate.md)
