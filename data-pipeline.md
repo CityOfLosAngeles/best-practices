@@ -58,7 +58,7 @@ A shorthand for producing all the data and inserting it can thus be run by invok
 More reading on why Makefiles are useful and best-practice guides for using them may be found here:
 
 * [Datamade Guide](https://github.com/datamade/data-making-guidelines)
-* [Why use Make](https://bost.ocks.org/mike/make/)
+* [Why Use Make](https://bost.ocks.org/mike/make/)
 * [Style Guide for Make](http://clarkgrubb.com/makefile-style-guide#data-workflows)
 
 ## Catalogs

@@ -27,7 +27,7 @@ This is a living document -- pull requests are welcome!
 5. [Working with Geospatial Data: Intermediate](./spatial-analysis-intermediate.md)
 6. [Working with Geospatial Data: Advanced](./spatial-analysis-advanced.md)
 
-### [Reading list](./reading-list.md)
+### [Reading List](./reading-list.md)
 
 ## To Contribute
 Add a [Markdown](https://guides.github.com/features/mastering-markdown/) document to the repository containing the guide you'd like to add and make a pull request. 

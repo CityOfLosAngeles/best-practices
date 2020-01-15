@@ -3,7 +3,7 @@
 Through your system's command line, you can control your GitHub repositories and branches with great precision. 
 This section is an evolving list of commands for common operations. Note that for many operations, GitHub has a variety of ways to accomplish the same or similar objective. These are but a few options.
 
-For a glossary of these terms and more, visit the [github site](https://help.github.com/en/articles/github-glossary). Below are basic steps you can take to create a pull workflow for your github repository.  This flow assumes you already have a repository.
+For a glossary of these terms and more, visit the [GitHub site](https://help.github.com/en/articles/github-glossary). Below are basic steps you can take to create a pull workflow for your github repository.  This flow assumes you already have a repository.
 
 Helpful commands:
 * [Committing](#committing)
@@ -65,29 +65,34 @@ If you need to reverse the stash, use the following command:
 
 Below are basic steps you can take to create a pull workflow for your github repository.  This flow assumes you already have a repository.
 
-### Step 1 - **UPDATE** the master branch
-In the gitshell and root directory of your repo, type `git checkout master` and then `git pull origin master` to get the latest master code.
+1. **Update** the master branch
 
-### Step 2 - Create a new branch
-Type `git checkout -b name-of-branch`
+    In the gitshell and root directory of your repo, type `git checkout master` and then `git pull origin master` to get the latest master code.
 
-### Step 3 - Make changes and **COMMIT**
-Work to address the branch's issue or new feature. Add your changes with `git add .` and make commit(s) with `git commit -m`. 
+2. Create a new branch
 
-When the issue/feature is complete and ready for review, you can close the issue with a commit by typing  `git commit -m "fixes #N"`  with #N being the number of the issue. 
+    Type `git checkout -b name-of-branch`
 
-### Step 4 - **PUSH BRANCH**
-Type `git push origin [name-of-branch]`
+3. Make changes and **commit**
 
-### Step 5 - Create a pull request in github
+    Work to address the branch's issue or new feature. Add your changes with `git add .` and make commit(s) with `git commit -m`. 
 
-### Step 6 - Merge pull request with github/origin master 
+    When the issue/feature is complete and ready for review, you can close the issue with a commit by typing  `git commit -m "fixes #N"`  with #N being the number of the issue. 
 
-### Step 7 - Checkout local master, pull in from upstream/origin
-`git checkout master`
+    When the issue/feature is complete and ready for review, you can close the issue with a commit by typing  `git commit -m "fixes #N"`  with #N being the number of the issue. 
 
-`git pull origin master`
+4. **Push Branch**
 
-### Step 8 - Delete branch
-To delete the branch locally, run `git branch -d {name-of-branch}`
+    Type `git push origin name-of-branch`
 
+5. Create a pull request in GitHub
+6. Merge pull regust with GitHub/origin master
+7. Checkout local master, pull in from origin/upstream
+
+    `git checkout master`
+
+    `git pull origin master`
+
+8. Delete branch
+
+    To delete the branch locally, run `git branch -d name-of-branch`
